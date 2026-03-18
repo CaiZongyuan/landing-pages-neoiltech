@@ -1,0 +1,117 @@
+{
+  "version": 2,
+  "created": "2026-03-18T10:22:36Z",
+  "session_config": {
+    "concurrency_mode": "exclusive",
+    "max_tasks_per_session": 20,
+    "max_sessions": 50
+  },
+  "tasks": [
+    {
+      "id": "task-001",
+      "title": "定义 Cloudflare custom entrypoint 部署契约与测试用例",
+      "status": "completed",
+      "priority": "P0",
+      "depends_on": [],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": null,
+      "validation": {
+        "command": "test -f docs/prd/cloudflare-custom-entrypoint.md && test -f docs/api/cloudflare-worker-entrypoint.md && test -f tests/cloudflare-custom-entrypoint-test-cases.md",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-03-18T10:25:01Z"
+    },
+    {
+      "id": "task-002",
+      "title": "实现 Cloudflare Workers custom server entrypoint 与 Wrangler 配置",
+      "status": "completed",
+      "priority": "P0",
+      "depends_on": [
+        "task-001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": null,
+      "validation": {
+        "command": "bun --bun run test src/server.test.ts && bun --bun run build",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-03-18T10:28:53Z"
+    },
+    {
+      "id": "task-003",
+      "title": "验证 Cloudflare 部署脚本与本地预览流程",
+      "status": "completed",
+      "priority": "P1",
+      "depends_on": [
+        "task-002"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": null,
+      "validation": {
+        "command": "bun --bun run test && bun --bun run build",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-03-18T10:29:26Z"
+    },
+    {
+      "id": "task-004",
+      "title": "重写 README 为简体中文并生成 commit message",
+      "status": "completed",
+      "priority": "P1",
+      "depends_on": [],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": null,
+      "validation": {
+        "command": "test -f README.md",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-03-18T10:43:02Z"
+    },
+    {
+      "id": "task-005",
+      "title": "补充 AGENTS commit message 生成规范",
+      "status": "completed",
+      "priority": "P1",
+      "depends_on": [],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": null,
+      "validation": {
+        "command": "rg -n \"commit message\" AGENTS.md >/dev/null",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-03-18T10:46:31Z"
+    }
+  ],
+  "session_count": 0,
+  "last_session": null
+}

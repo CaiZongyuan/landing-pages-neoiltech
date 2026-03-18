@@ -1,0 +1,17 @@
+[2026-03-18T10:23:23Z] ADD [task-001] 定义 Cloudflare custom entrypoint 部署契约与测试用例
+[2026-03-18T10:23:23Z] ADD [task-002] 实现 Cloudflare Workers custom server entrypoint 与 Wrangler 配置
+[2026-03-18T10:23:23Z] ADD [task-003] 验证 Cloudflare 部署脚本与本地预览流程
+[2026-03-18T10:23:31Z] CLAIM [task-001] 定义 Cloudflare custom entrypoint 部署契约与测试用例 worker=codex-cf-entrypoint
+[2026-03-18T10:25:01Z] COMPLETE [task-001]
+[2026-03-18T10:25:01Z] CLAIM [task-002] 实现 Cloudflare Workers custom server entrypoint 与 Wrangler 配置 worker=codex-cf-entrypoint
+[2026-03-18T10:28:53Z] COMPLETE [task-002]
+[2026-03-18T10:28:53Z] CLAIM [task-003] 验证 Cloudflare 部署脚本与本地预览流程 worker=codex-cf-entrypoint
+[2026-03-18T10:29:20Z] CHECKPOINT [task-003] Added src/server.ts custom Worker entrypoint, switched wrangler main to src/server.ts, guarded @cloudflare/vite-plugin during Vitest, verified preview script and build/test commands.
+[2026-03-18T10:29:26Z] COMPLETE [task-003]
+[2026-03-18T10:42:05Z] ADD [task-004] 重写 README 为简体中文并生成 commit message
+[2026-03-18T10:42:55Z] CLAIM [task-004] 重写 README 为简体中文并生成 commit message worker=codex-readme-zh
+[2026-03-18T10:31:00Z] CHECKPOINT [task-004] Rewrote README.md in Simplified Chinese with project overview, commands, route structure, i18n, and Cloudflare deployment notes. Prepared commit message.
+[2026-03-18T10:43:02Z] COMPLETE [task-004]
+[2026-03-18T10:46:00Z] ADD [task-005] 补充 AGENTS commit message 生成规范
+[2026-03-18T10:46:00Z] CLAIM [task-005] 补充 AGENTS commit message 生成规范 worker=codex-agents-commitmsg
+[2026-03-18T10:46:31Z] COMPLETE [task-005]
