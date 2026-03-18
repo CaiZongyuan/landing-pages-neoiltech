@@ -15,3 +15,7 @@
 [2026-03-18T10:46:00Z] ADD [task-005] 补充 AGENTS commit message 生成规范
 [2026-03-18T10:46:00Z] CLAIM [task-005] 补充 AGENTS commit message 生成规范 worker=codex-agents-commitmsg
 [2026-03-18T10:46:31Z] COMPLETE [task-005]
+[2026-03-18T11:09:37Z] ADD [task-006] 定义 AstraFlow landing pages 的 PRD/API/UI 合同文档
+[2026-03-18T11:09:37Z] CLAIM [task-006] 定义 AstraFlow landing pages 的 PRD/API/UI 合同文档 worker=codex-product-requirements base=2c5c13e02739b6033bec7e2fa859b40e7a372e25
+[2026-03-18T11:05:00Z] CHECKPOINT [task-006] Generated docs/prd/landing-pages.md, docs/api/landing-pages.md, and docs/ui/landing-pages.md for AstraFlow landing pages; fixed MVP routes, waitlist schema, markdown blog naming convention, and SEO/LLMO route contracts. Linked issue #1 and posted progress comment.
+[2026-03-18T11:15:45Z] COMPLETE [task-006]

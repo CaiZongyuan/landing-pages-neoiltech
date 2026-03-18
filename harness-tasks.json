@@ -110,6 +110,26 @@
       "error_log": [],
       "checkpoints": [],
       "completed_at": "2026-03-18T10:46:31Z"
+    },
+    {
+      "id": "task-006",
+      "title": "定义 AstraFlow landing pages 的 PRD/API/UI 合同文档",
+      "status": "completed",
+      "priority": "P1",
+      "depends_on": [],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": "2c5c13e02739b6033bec7e2fa859b40e7a372e25",
+      "validation": {
+        "command": "test -f docs/prd/landing-pages.md && test -f docs/api/landing-pages.md && test -f docs/ui/landing-pages.md",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-03-18T11:15:45Z"
     }
   ],
   "session_count": 0,
