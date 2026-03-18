@@ -23,7 +23,11 @@ const config = defineConfig(({ mode }) => {
       !isTest && cloudflare({ viteEnvironment: { name: 'ssr' } }),
       tsconfigPaths({ projects: ['./tsconfig.json'] }),
       tailwindcss(),
-      tanstackStart(),
+      tanstackStart({
+        router: {
+          routeFileIgnorePattern: '.*\\.test\\.(ts|tsx)$',
+        },
+      }),
       viteReact({
         babel: {
           plugins: ['babel-plugin-react-compiler'],
