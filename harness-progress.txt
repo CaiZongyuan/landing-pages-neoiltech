@@ -35,3 +35,11 @@
 [2026-03-19T06:23:00Z] CLAIM [task-010] 创建 PR、执行 gh-pr-review 并完成合并 worker=codex-ref-clone base=c4962bf issue=#8
 [2026-03-19T06:28:00Z] CHECKPOINT [task-010] Created PR #9, reviewed diff and local validation status, merged PR #9 with squash, and confirmed issue #8 closed.
 [2026-03-19T06:28:00Z] COMPLETE [task-010]
+[2026-03-19T06:45:01Z] ADD [task-011] 创建 AstraFlow 双语品牌与 Markdown blog GitHub issue
+[2026-03-19T06:45:01Z] ADD [task-012] 按 TDD 实现 AstraFlow/星绪 品牌替换、en/zh 双语与 Markdown blog
+[2026-03-19T06:45:01Z] ADD [task-013] 创建 PR、执行 gh-pr-review 并完成合并
+[2026-03-19T06:45:10Z] CLAIM [task-011] 创建 AstraFlow 双语品牌与 Markdown blog GitHub issue worker=codex-astraflow-brand-refresh base=e2f8492e78e207eec097e087efb8edb9882780d0
+[2026-03-19T06:47:20Z] COMPLETE [task-011]
+[2026-03-19T06:47:52Z] CLAIM [task-012] 按 TDD 实现 AstraFlow/星绪 品牌替换、en/zh 双语与 Markdown blog worker=codex-astraflow-brand-refresh base=e2f8492e78e207eec097e087efb8edb9882780d0
+[2026-03-19T07:05:31Z] COMPLETE [task-012]
+[2026-03-19T07:06:03Z] CLAIM [task-013] 创建 PR、执行 gh-pr-review 并完成合并 worker=codex-astraflow-brand-refresh base=6a1a4d023e246874e858a86a50079f8bf74f6634
