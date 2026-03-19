@@ -1,0 +1,44 @@
+AstraFlow 星绪
+Explore
+Open menu
+Family Execution System
+A calm operating layer for modern households.
+
+AstraFlow builds household context over time, routes work through personalized AI Agents, and turns fragmented family information into coordinated outcomes.
+
+Join the waitlist
+Read the blog
+Persistent household context
+
+Unify tasks, schedules, reminders, health signals, and family decisions into a shared operating memory.
+
+Personalized AI Agents
+
+Each family member gets an agent with identity, memory scope, permissions, and the right level of initiative.
+
+EaseFlows
+
+Turn repeat household coordination into reusable execution methods with clear triggers, escalations, and outcome metrics.
+
+Trust by design
+
+High-risk actions stay permissioned. Context remains explainable, reviewable, and deletable. The default experience should feel restrained, not noisy.
+
+Least-privilege actions for every workflow
+Clear confirmation points before sensitive execution
+Auditable household context instead of opaque memory
+Signals we optimize for
+“The strongest idea here is not another assistant. It is an execution system that reduces household coordination overhead.”
+Product Advisor
+Consumer AI
+“AstraFlow feels calm and opinionated. It frames trust and follow-through as product primitives, not polish.”
+Early Design Partner
+Family Ops
+Stay close to the rollout
+
+We are sharing product notes, household execution patterns, and launch updates as AstraFlow evolves.
+
+AstraFlow / 星绪
+Request access
+
+Static form for now. Submission storage is not in scope for this change.
