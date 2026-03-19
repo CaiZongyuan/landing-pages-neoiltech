@@ -198,7 +198,7 @@
     {
       "id": "task-010",
       "title": "创建 PR、执行 gh-pr-review 并完成合并",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "depends_on": [
         "task-009"
@@ -215,7 +215,7 @@
       },
       "error_log": [],
       "checkpoints": [],
-      "completed_at": null
+      "completed_at": "2026-03-19T06:28:00Z"
     }
   ],
   "session_count": 0,
