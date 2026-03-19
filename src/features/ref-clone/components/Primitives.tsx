@@ -4,9 +4,10 @@ import type {
   InputHTMLAttributes,
   ReactNode,
 } from 'react'
-import { Menu, Quote } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
+import { Languages, Menu, Quote } from 'lucide-react'
 import { cn } from '#/lib/utils'
+import { useSiteLocale } from '../lib/siteLocale'
 
 export function Button({
   className,
@@ -51,25 +52,25 @@ export function SoftCard({
   return (
     <div
       className={cn(
-        'relative overflow-hidden rounded-[28px] bg-white/70 backdrop-blur-xl ring-1 ring-black/5',
+        'relative overflow-hidden rounded-[28px] bg-white/72 backdrop-blur-xl ring-1 ring-black/5',
         'shadow-[0_40px_110px_rgba(2,8,23,0.10)]',
         className,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_80%_at_10%_10%,rgba(56,189,248,0.18),transparent_60%),radial-gradient(70%_90%_at_90%_20%,rgba(99,102,241,0.10),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_80%_at_10%_10%,rgba(14,165,233,0.12),transparent_60%),radial-gradient(70%_90%_at_90%_20%,rgba(59,130,246,0.08),transparent_55%)]" />
       <div className="relative">{children}</div>
     </div>
   )
 }
 
-function LogoMark({ className }: { className?: string }) {
+function LogoMark() {
   return (
-    <div className={cn('flex items-center gap-2', className)}>
-      <span className="relative grid size-7 place-items-center overflow-hidden rounded-[14px] bg-white/70 shadow-[0_14px_40px_rgba(2,132,199,0.16)] ring-1 ring-black/5">
-        <span className="absolute inset-0 bg-[radial-gradient(90%_90%_at_30%_20%,rgba(255,255,255,0.9),transparent_55%),linear-gradient(to_bottom,rgba(56,189,248,0.95),rgba(2,132,199,0.95))]" />
+    <div className="flex items-center gap-3">
+      <span className="relative grid size-8 place-items-center overflow-hidden rounded-[16px] bg-white/70 shadow-[0_14px_40px_rgba(2,132,199,0.16)] ring-1 ring-black/5">
+        <span className="absolute inset-0 bg-[radial-gradient(90%_90%_at_30%_20%,rgba(255,255,255,0.9),transparent_55%),linear-gradient(to_bottom,rgba(14,165,233,0.95),rgba(2,132,199,0.95))]" />
         <span className="relative z-10 size-2.5 rounded-[7px] bg-white" />
       </span>
-      <span className="font-display text-[18px] tracking-tight">dona</span>
+      <span className="font-display text-[18px] tracking-tight">AstraFlow 星绪</span>
     </div>
   )
 }
@@ -81,11 +82,29 @@ export function CloneHeader({
   onAbout?: () => void
   onGetStarted?: () => void
 }) {
+  const { locale, setLocale } = useSiteLocale()
+  const copy =
+    locale === 'zh'
+      ? {
+          home: '首页',
+          about: '关于',
+          blog: '博客',
+          action: '了解更多',
+          language: '语言',
+        }
+      : {
+          home: 'Home',
+          about: 'About',
+          blog: 'Blog',
+          action: 'Explore',
+          language: 'Language',
+        }
+
   return (
     <header className="sticky top-0 z-50 pt-4 sm:pt-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-8">
         <div className="relative flex items-center justify-between gap-3 rounded-[999px] bg-white/55 px-3 py-2 backdrop-blur-2xl ring-1 ring-white/60 shadow-[0_30px_90px_rgba(2,8,23,0.10)] sm:px-4">
-          <div className="pointer-events-none absolute inset-0 rounded-[999px] bg-[radial-gradient(80%_140%_at_20%_0%,rgba(255,255,255,0.95),transparent_55%),radial-gradient(80%_120%_at_90%_10%,rgba(56,189,248,0.20),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-0 rounded-[999px] bg-[radial-gradient(80%_140%_at_20%_0%,rgba(255,255,255,0.95),transparent_55%),radial-gradient(80%_120%_at_90%_10%,rgba(14,165,233,0.16),transparent_60%)]" />
           <div className="pointer-events-none absolute inset-0 rounded-[999px] ring-1 ring-black/5" />
 
           <div className="relative flex items-center gap-3">
@@ -100,35 +119,49 @@ export function CloneHeader({
               hash="top"
               className="rounded-full px-4 py-2 text-sm text-slate-700 no-underline transition hover:bg-white/55 hover:text-slate-950"
             >
-              Home
+              {copy.home}
             </Link>
             <button
               type="button"
               className="rounded-full px-4 py-2 text-sm text-slate-700 transition hover:bg-white/55 hover:text-slate-950"
               onClick={onAbout}
             >
-              About
+              {copy.about}
             </button>
             <Link
               to="/blog"
               className="rounded-full px-4 py-2 text-sm text-slate-700 no-underline transition hover:bg-white/55 hover:text-slate-950"
             >
-              Blog
+              {copy.blog}
             </Link>
           </nav>
 
           <div className="relative flex items-center gap-2">
-            <Button
-              className="hidden h-10 rounded-full bg-white/70 px-4 text-sm text-slate-900 ring-1 ring-black/5 hover:bg-white sm:inline-flex"
-              onClick={() => window.open('https://dona.ai/login', '_blank')}
-            >
-              Login
-            </Button>
+            <div className="hidden items-center gap-1 rounded-full bg-white/70 p-1 ring-1 ring-black/5 md:flex">
+              <span className="px-2 text-xs text-slate-500">
+                <Languages className="size-3.5" />
+                <span className="sr-only">{copy.language}</span>
+              </span>
+              {(['en', 'zh'] as const).map((value) => (
+                <Button
+                  key={value}
+                  className={cn(
+                    'h-8 rounded-full px-3 text-xs font-medium',
+                    locale === value
+                      ? 'bg-slate-950 text-white'
+                      : 'bg-transparent text-slate-600 hover:bg-white',
+                  )}
+                  onClick={() => setLocale(value)}
+                >
+                  {value === 'en' ? 'EN' : '中文'}
+                </Button>
+              ))}
+            </div>
             <Button
               className="h-10 rounded-full bg-slate-950 px-5 text-sm text-white shadow-[0_20px_60px_rgba(2,8,23,0.20)] hover:bg-slate-900"
               onClick={onGetStarted}
             >
-              Get started
+              {copy.action}
             </Button>
             <Button className="size-10 rounded-full bg-white/70 p-0 ring-1 ring-black/5 sm:hidden">
               <span className="sr-only">Open menu</span>
