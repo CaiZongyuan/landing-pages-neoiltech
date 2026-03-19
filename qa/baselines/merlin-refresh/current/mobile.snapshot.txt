@@ -1,0 +1,101 @@
+- generic
+- generic
+  - generic
+  - generic
+- banner
+  - generic
+    - generic
+    - generic
+    - generic
+      - link "AstraFlow 星绪" [ref=e5]
+        - StaticText "AstraFlow 星绪"
+    - generic
+      - button "Explore" [ref=e6]
+        - StaticText "Explore"
+      - button "Open menu" [ref=e7]
+        - StaticText "Open menu"
+- main
+  - generic
+    - generic
+      - StaticText "Family Execution System"
+    - heading "A calm operating layer for modern households." [level=1, ref=e2]
+      - StaticText "A calm operating layer for modern households."
+    - paragraph
+      - StaticText "AstraFlow builds household context over time, routes work through personalized AI Agents, and turns fragmented family information into coordinated outcomes."
+    - button "Join the waitlist" [ref=e3]
+      - StaticText "Join the waitlist"
+    - link "Read the blog" [ref=e4]
+      - button "Read the blog" [ref=e8]
+        - StaticText "Read the blog"
+    - generic
+      - generic
+      - generic
+        - generic
+          - StaticText "Persistent household context"
+        - paragraph
+          - StaticText "Unify tasks, schedules, reminders, health signals, and family decisions into a shared operating memory."
+        - generic
+          - StaticText "Personalized AI Agents"
+        - paragraph
+          - StaticText "Each family member gets an agent with identity, memory scope, permissions, and the right level of initiative."
+        - generic
+          - StaticText "EaseFlows"
+        - paragraph
+          - StaticText "Turn repeat household coordination into reusable execution methods with clear triggers, escalations, and outcome metrics."
+    - generic
+      - generic
+      - generic
+        - generic
+          - StaticText "Trust by design"
+        - paragraph
+          - StaticText "High-risk actions stay permissioned. Context remains explainable, reviewable, and deletable. The default experience should feel restrained, not noisy."
+        - list
+          - listitem [level=1]
+            - StaticText "Least-privilege actions for every workflow"
+          - listitem [level=1]
+            - StaticText "Clear confirmation points before sensitive execution"
+          - listitem [level=1]
+            - StaticText "Auditable household context instead of opaque memory"
+  - generic
+    - generic
+      - generic
+      - generic
+        - heading "Signals we optimize for" [level=2, ref=e9]
+          - StaticText "Signals we optimize for"
+        - generic
+          - StaticText "“"
+          - StaticText "The strongest idea here is not another assistant. It is an execution system that reduces household coordination overhead."
+          - StaticText "”"
+        - generic
+          - StaticText "Product Advisor"
+        - generic
+          - StaticText "Consumer AI"
+        - generic
+          - StaticText "“"
+          - StaticText "AstraFlow feels calm and opinionated. It frames trust and follow-through as product primitives, not polish."
+          - StaticText "”"
+        - generic
+          - StaticText "Early Design Partner"
+        - generic
+          - StaticText "Family Ops"
+  - generic
+    - generic
+      - generic
+      - generic
+        - heading "Stay close to the rollout" [level=3, ref=e10]
+          - StaticText "Stay close to the rollout"
+        - paragraph
+          - StaticText "We are sharing product notes, household execution patterns, and launch updates as AstraFlow evolves."
+        - generic
+          - LabelText
+            - StaticText "AstraFlow / 星绪"
+          - textbox "AstraFlow / 星绪" [ref=e11]
+            - generic
+          - button "Request access" [ref=e12]
+            - StaticText "Request access"
+          - paragraph
+            - StaticText "Static form for now. Submission storage is not in scope for this change."
+- generic
+- generic
+  - button "Open TanStack Devtools" [ref=e1]
+    - image "TanStack Devtools"

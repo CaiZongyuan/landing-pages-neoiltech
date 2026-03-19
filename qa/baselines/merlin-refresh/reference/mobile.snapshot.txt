@@ -1,0 +1,596 @@
+- generic
+  - generic
+    - paragraph
+      - StaticText "1"
+      - StaticText "0"
+      - StaticText "0"
+      - StaticText ","
+      - StaticText "0"
+      - StaticText "0"
+      - StaticText "0"
+      - StaticText "+"
+      - StaticText " "
+      - StaticText "e"
+      - StaticText "m"
+      - StaticText "a"
+      - StaticText "i"
+      - StaticText "l"
+      - StaticText "s"
+      - StaticText " "
+      - StaticText "p"
+      - StaticText "r"
+      - StaticText "i"
+      - StaticText "o"
+      - StaticText "r"
+      - StaticText "i"
+      - StaticText "t"
+      - StaticText "i"
+      - StaticText "z"
+      - StaticText "e"
+      - StaticText "d"
+      - StaticText " "
+      - StaticText "s"
+      - StaticText "o"
+      - StaticText " "
+      - StaticText "f"
+      - StaticText "a"
+      - StaticText "r"
+    - paragraph
+      - generic
+        - generic
+          - StaticText "T"
+        - generic
+          - StaticText "h"
+        - generic
+          - StaticText "e"
+        - StaticText " "
+      - generic
+        - generic
+          - StaticText "w"
+        - generic
+          - StaticText "o"
+        - generic
+          - StaticText "r"
+        - generic
+          - StaticText "l"
+        - generic
+          - StaticText "d"
+        - generic
+          - StaticText "'"
+        - generic
+          - StaticText "s"
+      - image "home of merlin"
+      - generic
+        - StaticText " "
+      - generic
+        - generic
+          - StaticText "f"
+        - generic
+          - StaticText "i"
+        - generic
+          - StaticText "r"
+        - generic
+          - StaticText "s"
+        - generic
+          - StaticText "t"
+      - generic
+        - StaticText "AI chief of staff"
+    - paragraph
+      - StaticText "Merlin finds your highest-impact priorities from your inbox and calendar, then helps you complete them with a single click."
+    - image "Try merlin for free for 7 days"
+    - button "Start free trial Start free trial" [ref=e1]
+      - link "Start free trial Start free trial" [ref=e10]
+        - generic
+          - StaticText "Start free trial"
+        - StaticText "Start free trial"
+      - image
+    - generic
+      - StaticText " "
+    - paragraph
+      - StaticText "Used by professionals at"
+    - generic
+      - StaticText " "
+    - image "notion"
+    - image
+    - image "harvard university"
+    - image
+    - image
+    - generic
+      - generic
+        - image
+        - paragraph
+          - StaticText "Starting your day knowing exactly what matters:"
+          - StaticText "emails prioritized, action items flagged, and your day mapped out before the caffeine hits."
+      - image "macbook"
+    - generic
+      - generic
+        - paragraph
+          - generic
+            - generic
+              - StaticText """
+            - generic
+              - StaticText "M"
+            - generic
+              - StaticText "e"
+            - generic
+              - StaticText "r"
+            - generic
+              - StaticText "l"
+            - generic
+              - StaticText "i"
+            - generic
+              - StaticText "n"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "b"
+            - generic
+              - StaticText "e"
+            - generic
+              - StaticText "c"
+            - generic
+              - StaticText "a"
+            - generic
+              - StaticText "m"
+            - generic
+              - StaticText "e"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "t"
+            - generic
+              - StaticText "h"
+            - generic
+              - StaticText "e"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "o"
+            - generic
+              - StaticText "p"
+            - generic
+              - StaticText "e"
+            - generic
+              - StaticText "r"
+            - generic
+              - StaticText "a"
+            - generic
+              - StaticText "t"
+            - generic
+              - StaticText "i"
+            - generic
+              - StaticText "n"
+            - generic
+              - StaticText "g"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "s"
+            - generic
+              - StaticText "y"
+            - generic
+              - StaticText "s"
+            - generic
+              - StaticText "t"
+            - generic
+              - StaticText "e"
+            - generic
+              - StaticText "m"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "f"
+            - generic
+              - StaticText "o"
+            - generic
+              - StaticText "r"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "m"
+            - generic
+              - StaticText "y"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "d"
+            - generic
+              - StaticText "a"
+            - generic
+              - StaticText "y"
+            - generic
+              - StaticText "—"
+            - generic
+              - StaticText "c"
+            - generic
+              - StaticText "l"
+            - generic
+              - StaticText "e"
+            - generic
+              - StaticText "a"
+            - generic
+              - StaticText "r"
+            - generic
+              - StaticText "e"
+            - generic
+              - StaticText "d"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "m"
+            - generic
+              - StaticText "y"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "p"
+            - generic
+              - StaticText "l"
+            - generic
+              - StaticText "a"
+            - generic
+              - StaticText "t"
+            - generic
+              - StaticText "e"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "a"
+            - generic
+              - StaticText "n"
+            - generic
+              - StaticText "d"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "g"
+            - generic
+              - StaticText "a"
+            - generic
+              - StaticText "v"
+            - generic
+              - StaticText "e"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "m"
+            - generic
+              - StaticText "e"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "b"
+            - generic
+              - StaticText "a"
+            - generic
+              - StaticText "c"
+            - generic
+              - StaticText "k"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "1"
+            - generic
+              - StaticText "2"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "h"
+            - generic
+              - StaticText "o"
+            - generic
+              - StaticText "u"
+            - generic
+              - StaticText "r"
+            - generic
+              - StaticText "s"
+            - StaticText " "
+          - generic
+            - StaticText "a"
+            - StaticText " "
+          - generic
+            - generic
+              - StaticText "w"
+            - generic
+              - StaticText "e"
+            - generic
+              - StaticText "e"
+            - generic
+              - StaticText "k"
+            - generic
+              - StaticText "."
+            - generic
+              - StaticText """
+        - separator
+        - paragraph
+          - StaticText "Elias Moore"
+        - paragraph
+          - StaticText "CEO, Strideworks"
+    - paragraph
+      - StaticText "Your Inbox, Calendar & Slack – finally working together"
+    - paragraph
+      - StaticText "Merlin syncs Gmail, Google Calendar, and Slack so you can book trips, clear tasks, and silence chaos from one chat."
+    - paragraph
+      - StaticText "Hey Merlin - When can"
+      - StaticText "Jason Glover"
+      - StaticText "and I squeeze in a trip to Tokyo together for 4 days?"
+    - generic
+      - StaticText "Checking calendars…"
+    - image
+    - paragraph
+      - StaticText "Alright, I've crunched the chaos."
+      - LineBreak "
+"
+      - LineBreak "
+"
+      - StaticText "Here's the game plan:"
+    - generic
+      - paragraph
+        - StaticText "Dates:"
+        - StaticText "March 16-20. Shifted Jason's 9 AM meeting to the 15th (he'll get over it)."
+    - generic
+      - paragraph
+        - StaticText "Flights:"
+        - StaticText "ANA Nonstop, March 16 @ 8 PM. Lie-flat seats, Wi-Fi, zero layover trauma."
+    - generic
+      - paragraph
+        - StaticText "Stay:"
+        - StaticText " Daikanyama Airbnb. Artsy, quiet, and 2 blocks from Arabica Coffee (Jason's Insta crush)."
+    - paragraph
+      - StaticText "If this sounds good, hit the button below and I'll get things booked. If not, tell me what's off!"
+    - paragraph
+      - StaticText "Clarity over clutter"
+    - paragraph
+      - StaticText "No more jumping between apps. Merlin sees your full context and lines up what matters, when it matters."
+    - generic
+      - generic
+        - paragraph
+          - StaticText "S"
+          - StaticText "u"
+          - StaticText "m"
+          - StaticText "m"
+          - StaticText "a"
+          - StaticText "r"
+          - StaticText "i"
+          - StaticText "z"
+          - StaticText "e"
+          - StaticText " "
+          - StaticText "l"
+          - StaticText "a"
+          - StaticText "s"
+          - StaticText "t"
+          - StaticText " "
+          - StaticText "i"
+          - StaticText "n"
+          - StaticText "v"
+          - StaticText "e"
+          - StaticText "s"
+          - StaticText "t"
+          - StaticText "o"
+          - StaticText "r"
+          - StaticText " "
+          - StaticText "c"
+          - StaticText "a"
+          - StaticText "l"
+          - StaticText "l"
+        - generic
+      - paragraph
+        - StaticText "Talk. Type. Done."
+      - paragraph
+        - StaticText "Ask Merlin for anything. Whether it is a draft reply, a meeting proposal, or a quick summary, it happens instantly."
+    - paragraph
+      - StaticText "Pricing"
+    - paragraph
+      - StaticText "Hire your full-time, dedicated AI chief of staff for only $19 per month."
+    - generic
+      - paragraph
+        - StaticText "Merlin AI"
+      - generic
+        - image
+      - paragraph
+        - StaticText "Available 24/7 to monitor your inbox, calendar, and Slack."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Schedule meetings, reply to investors, block time, or snooze threads instantly from your inbox."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Merlin combines ChatGPT, Superhuman, Calendly, or Clay and saves hundreds per month."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "SOC 2-ready. No human sees your data. Merlin keeps your information private and secure."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Automatically maps your most important contacts from email, calendar, and Slack history."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Flags high-priority issues and suggests next actions without being asked."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "$19 per month. No payroll, HR, or hidden costs."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Access Merlin from WhatsApp and take action on the go."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Connect Gmail, Slack, and Calendar in 60 seconds. No interviews or training."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "No contracts or notice periods. Start and stop when you want."
+    - generic
+      - paragraph
+        - StaticText "Traditional EA"
+      - generic
+        - image
+      - paragraph
+        - StaticText "Works only during office hours. May miss urgent issues after hours or on weekends."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Requires back-and-forth. Delays are common due to bandwidth and task switching."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Still need separate tools for AI, scheduling, email UX, and contact intelligence."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Data privacy depends on one person's discretion and your trust."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Assistants maintain lists based on memory or scattered notes."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Waits for instruction. May overlook subtle but urgent items."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "$4,000 to $8,000 per month plus benefits, software, and admin time."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Not optimized for async messaging or quick mobile-first communication."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Weeks to hire, train, and build trust. Impact is delayed."
+      - separator
+      - generic
+        - image
+      - paragraph
+        - StaticText "Requires HR processes, transition plans, and emotional navigation."
+    - button "Make the switch to Merlin Make the switch to Merlin" [ref=e2]
+      - generic
+        - link "Make the switch to Merlin Make the switch to Merlin" [ref=e12]
+          - generic
+            - StaticText "Make the switch to Merlin"
+          - StaticText "Make the switch to Merlin"
+      - image
+    - generic
+      - generic
+        - generic
+          - generic
+            - image
+            - paragraph
+              - StaticText "Merlin was built"
+              - LineBreak "
+"
+              - StaticText "for one."
+              - StaticText " "
+              - StaticText " "
+              - StaticText "You."
+    - generic
+      - StaticText "Your Data. Your Control."
+      - LineBreak "
+"
+      - paragraph
+        - StaticText "Fully Compliant."
+      - paragraph
+        - StaticText "Merlin meets the highest industry standards, including SOC 2 Type II, GDPR, CCPA, and HIPAA, to ensure your data stays secure, private, and fully under your control."
+      - image "AICPA SOC2 Certified"
+      - image "GDPR Compliant"
+      - image "HIPAA Compliant"
+    - generic
+      - image "how it works"
+      - paragraph
+        - StaticText "Ready to win back 12 hours a week?"
+    - image "step one"
+    - paragraph
+      - StaticText "Connect in minutes"
+    - paragraph
+      - StaticText "Sync Gmail, Google Calendar, and more. Merlin filters the noise and finds what matters."
+    - image "step one"
+    - paragraph
+      - StaticText "See your day prioritized"
+    - paragraph
+      - StaticText "Merlin surfaces the emails, meetings, and tasks that matter most to your day."
+    - image "step one"
+    - paragraph
+      - StaticText "Take back your time"
+    - paragraph
+      - StaticText "Complete high-impact priorities with one click and reclaim 12+ hours a week."
+    - generic
+      - button "Start free trial" [ref=e11]
+        - generic
+        - paragraph
+          - StaticText "Start free trial"
+        - generic
+        - generic
+    - paragraph
+      - StaticText "Questions? Merlin’s already three steps ahead."
+    - paragraph
+      - StaticText "We figured you might ask. Here’s everything you need to know — before you even had to ask."
+    - generic
+      - generic
+        - button "What exactly does Merlin do?" [expanded=false, ref=e13]
+          - StaticText "What exactly does Merlin do?"
+        - button "How is Merlin different from Superhuman, Notion Calendar, Clay, or ChatGPT?" [expanded=false, ref=e14]
+          - StaticText "How is Merlin different from Superhuman, Notion Calendar, Clay, or ChatGPT?"
+        - button "How much time can I actually save with Merlin?" [expanded=false, ref=e15]
+          - StaticText "How much time can I actually save with Merlin?"
+        - button "Who is Merlin built for?" [expanded=false, ref=e16]
+          - StaticText "Who is Merlin built for?"
+        - button "What are the core principles of Merlin's security program?" [expanded=false, ref=e17]
+          - StaticText "What are the core principles of Merlin's security program?"
+        - button "How does Merlin use my data for AI features?" [expanded=false, ref=e18]
+          - StaticText "How does Merlin use my data for AI features?"
+        - button "How is data ownership handled?" [expanded=false, ref=e19]
+          - StaticText "How is data ownership handled?"
+        - button "What security certifications and evaluations does Merlin meet?" [expanded=false, ref=e20]
+          - StaticText "What security certifications and evaluations does Merlin meet?"
+    - separator
+    - paragraph
+      - StaticText "Press"
+    - button "Space" [ref=e3]
+      - paragraph
+        - StaticText "Space"
+      - image
+    - paragraph
+      - StaticText "to start your free trial"
+    - link "Pricing" [ref=e4]
+      - StaticText "Pricing"
+    - link "Blog" [ref=e5]
+      - StaticText "Blog"
+    - link "Privacy policy" [ref=e6]
+      - StaticText "Privacy policy"
+    - link "Terms of service" [ref=e7]
+      - StaticText "Terms of service"
+    - link [ref=e8]
+      - image
+    - link [ref=e9]
+      - image
+    - paragraph
+      - StaticText "© 2025. Merlin Labs, Inc."
+    - generic
+      - image "merlin logo"
+    - generic
+      - generic
+  - generic
+    - alert
