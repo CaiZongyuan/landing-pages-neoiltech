@@ -44,3 +44,12 @@
 [2026-03-19T07:05:31Z] COMPLETE [task-012]
 [2026-03-19T07:06:03Z] CLAIM [task-013] 创建 PR、执行 gh-pr-review 并完成合并 worker=codex-astraflow-brand-refresh base=6a1a4d023e246874e858a86a50079f8bf74f6634
 [2026-03-19T07:09:43Z] COMPLETE [task-013]
+[2026-03-19T07:17:12Z] ADD [task-014] 修复语言切换后主体内容未立即刷新的 bug
+[2026-03-19T07:17:15Z] ADD [task-015] 创建语言切换 bugfix PR 并完成合并
+[2026-03-19T07:17:15Z] ADD [task-016] 创建语言切换主体不刷新的 bug issue
+[2026-03-19T07:18:03Z] CLAIM [task-016] 创建语言切换主体不刷新的 bug issue worker=codex-locale-rerender-fix base=83e1526da2fc4e8c6d2172b0f3beb0e4da5dcd1f
+[2026-03-19T07:18:54Z] COMPLETE [task-016]
+[2026-03-19T07:19:27Z] CLAIM [task-014] 修复语言切换后主体内容未立即刷新的 bug worker=codex-locale-rerender-fix base=83e1526da2fc4e8c6d2172b0f3beb0e4da5dcd1f
+[2026-03-19T07:25:56Z] COMPLETE [task-014]
+[2026-03-19T07:25:56Z] CLAIM [task-015] 创建语言切换 bugfix PR 并完成合并 worker=codex-locale-rerender-fix base=f7a25fe2b03e0e60059a4d0267d963799e911c9b
+[2026-03-19T07:27:58Z] COMPLETE [task-015]

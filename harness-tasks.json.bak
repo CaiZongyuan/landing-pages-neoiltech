@@ -262,7 +262,7 @@
     {
       "id": "task-013",
       "title": "创建 PR、执行 gh-pr-review 并完成合并",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "depends_on": [
         "task-012"
@@ -279,9 +279,73 @@
       },
       "error_log": [],
       "checkpoints": [],
+      "completed_at": "2026-03-19T07:09:43Z"
+    },
+    {
+      "id": "task-014",
+      "title": "修复语言切换后主体内容未立即刷新的 bug",
+      "status": "completed",
+      "priority": "P0",
+      "depends_on": [
+        "task-016"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": "83e1526da2fc4e8c6d2172b0f3beb0e4da5dcd1f",
+      "validation": {
+        "command": "bun --bun run test && bun --bun run build",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-03-19T07:25:56Z"
+    },
+    {
+      "id": "task-015",
+      "title": "创建语言切换 bugfix PR 并完成合并",
+      "status": "in_progress",
+      "priority": "P1",
+      "depends_on": [
+        "task-014"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": "f7a25fe2b03e0e60059a4d0267d963799e911c9b",
+      "validation": {
+        "command": "gh pr status",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
       "completed_at": null,
-      "claimed_by": "codex-astraflow-brand-refresh",
-      "claimed_at": "2026-03-19T07:06:03Z"
+      "claimed_by": "codex-locale-rerender-fix",
+      "claimed_at": "2026-03-19T07:25:56Z"
+    },
+    {
+      "id": "task-016",
+      "title": "创建语言切换主体不刷新的 bug issue",
+      "status": "completed",
+      "priority": "P0",
+      "depends_on": [],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": "83e1526da2fc4e8c6d2172b0f3beb0e4da5dcd1f",
+      "validation": {
+        "command": "gh issue list --limit 100 | rg '语言切换.*主体.*刷新|locale switch.*rerender'",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-03-19T07:18:54Z"
     }
   ],
   "session_count": 0,
