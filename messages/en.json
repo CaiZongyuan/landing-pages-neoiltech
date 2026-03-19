@@ -2,7 +2,7 @@
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "home_page": "Home page",
   "about_page": "About page",
-  "example_message": "Welcome to your i18n app.",
+  "example_message": "Welcome to AstraFlow's bilingual site.",
   "language_label": "Language",
   "current_locale": "Current locale: {locale}",
   "learn_router": "Learn Paraglide JS"

@@ -6,7 +6,7 @@ export const Route = createFileRoute('/blog/')({
   head: () => ({
     meta: [
       {
-        title: 'Blog | dona',
+        title: 'AstraFlow Blog',
       },
     ],
   }),

@@ -1,36 +1,50 @@
-import { useEffect } from 'react'
 import { Link } from '@tanstack/react-router'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { getPostBySlug } from '../content/blogPosts'
+import { getPostBySlug, getTranslatedPost } from '../content/blogContent'
 import { Button, CloneHeader, Separator } from '../components/Primitives'
+import { useSiteLocale } from '../lib/siteLocale'
 import { cn } from '#/lib/utils'
 import { getTableOfContents, slugifyHeading } from '../lib/slug'
 
 export function BlogPostPage({ slug }: { slug: string }) {
-  const post = getPostBySlug(slug)
+  const { locale, setLocale } = useSiteLocale()
+  const post = getPostBySlug(slug, locale)
+  const englishPost = getTranslatedPost(slug, 'en')
+  const chinesePost = getTranslatedPost(slug, 'zh')
   const toc = post ? getTableOfContents(post.contentMd) : []
-
-  useEffect(() => {
-    const headings = Array.from(document.querySelectorAll('article h2'))
-    for (const heading of headings) {
-      if (!heading.id) {
-        heading.id = slugifyHeading(heading.textContent || '')
-      }
-    }
-  }, [slug])
+  const copy =
+    locale === 'zh'
+      ? {
+          missingTitle: '文章不存在',
+          missingBody: '当前语言下没有找到这篇文章。',
+          backToBlog: '返回博客',
+          onPage: '本页目录',
+          home: '返回首页',
+          switcher: '切换语言',
+          sections: '暂无二级标题',
+        }
+      : {
+          missingTitle: 'Post not found',
+          missingBody: 'No article is available for this locale.',
+          backToBlog: 'Back to Blog',
+          onPage: 'On this page',
+          home: 'Back to Home',
+          switcher: 'Switch language',
+          sections: 'No sections',
+        }
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-dona">
+      <div className="min-h-screen bg-astraflow">
         <CloneHeader onGetStarted={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
         <main className="mx-auto max-w-4xl px-5 py-16 sm:px-8">
           <div className="rounded-[28px] bg-white/70 p-8 ring-1 ring-black/5">
-            <div className="font-display text-[28px] tracking-tight">Post not found</div>
-            <div className="mt-2 text-sm text-slate-600">这篇文章不存在（静态 demo）。</div>
+            <div className="font-display text-[28px] tracking-tight">{copy.missingTitle}</div>
+            <div className="mt-2 text-sm text-slate-600">{copy.missingBody}</div>
             <Link to="/blog" className="inline-flex no-underline">
               <Button className="mt-6 h-11 rounded-full bg-slate-950 px-6 text-white hover:bg-slate-900">
-                Back to Blog
+                {copy.backToBlog}
               </Button>
             </Link>
           </div>
@@ -40,12 +54,12 @@ export function BlogPostPage({ slug }: { slug: string }) {
   }
 
   return (
-    <div className="min-h-screen bg-dona text-slate-950">
+    <div className="min-h-screen bg-astraflow text-slate-950">
       <CloneHeader onGetStarted={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
 
       <main className="mx-auto max-w-6xl px-5 pb-20 pt-10 sm:px-8">
         <Link to="/blog" className="text-sm text-slate-600 no-underline hover:text-slate-900">
-          ← All
+          ← {copy.backToBlog}
         </Link>
 
         <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_320px]">
@@ -54,7 +68,7 @@ export function BlogPostPage({ slug }: { slug: string }) {
               {post.title}
             </h1>
             <div className="mt-4 text-sm text-slate-500">
-              {post.author} · {new Date(post.date).toLocaleDateString()} · {post.minutes} min read
+              {post.author} · {new Date(post.date).toLocaleDateString(locale)} · {post.minutes} min
             </div>
 
             <div
@@ -83,10 +97,31 @@ export function BlogPostPage({ slug }: { slug: string }) {
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-[28px] bg-white/70 p-6 ring-1 ring-black/5">
-              <div className="text-xs text-slate-500">min read</div>
-              <div className="mt-1 font-display text-[26px] tracking-tight">{post.minutes}</div>
+              <div className="text-xs text-slate-500">{copy.switcher}</div>
+              <div className="mt-3 flex gap-2">
+                <Button
+                  className={cn(
+                    'h-10 rounded-full px-4 text-sm ring-1 ring-black/5',
+                    locale === 'en' ? 'bg-slate-950 text-white' : 'bg-white/80 text-slate-900',
+                  )}
+                  disabled={!englishPost}
+                  onClick={() => setLocale('en')}
+                >
+                  EN
+                </Button>
+                <Button
+                  className={cn(
+                    'h-10 rounded-full px-4 text-sm ring-1 ring-black/5',
+                    locale === 'zh' ? 'bg-slate-950 text-white' : 'bg-white/80 text-slate-900',
+                  )}
+                  disabled={!chinesePost}
+                  onClick={() => setLocale('zh')}
+                >
+                  中文
+                </Button>
+              </div>
               <Separator className="my-5 bg-black/5" />
-              <div className="text-sm font-medium">On this page</div>
+              <div className="text-sm font-medium">{copy.onPage}</div>
               <div className="mt-3 grid gap-2">
                 {toc.length ? (
                   toc.map((item) => (
@@ -106,13 +141,13 @@ export function BlogPostPage({ slug }: { slug: string }) {
                     </a>
                   ))
                 ) : (
-                  <div className="text-sm text-slate-500">No sections</div>
+                  <div className="text-sm text-slate-500">{copy.sections}</div>
                 )}
               </div>
               <Separator className="my-5 bg-black/5" />
               <Link to="/" hash="top" className="inline-flex w-full no-underline">
                 <Button className="h-11 w-full rounded-full bg-white/80 text-slate-900 ring-1 ring-black/5 hover:bg-white">
-                  Back to Home
+                  {copy.home}
                 </Button>
               </Link>
             </div>

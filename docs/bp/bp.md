@@ -1,332 +1,515 @@
-AstraFlow 内部BP（重写版 v0.0.2）
-用途：内部评审/战略对齐（详细版）
-版本：v0.0.2（基于 v0.0.1 + OpenClaw 模式补强）
-日期：2026-03-09
+AstraFlow 内部 BP（Investor-ready 重写版 v0.0.3）
+用途： 融资沟通 / 顶级投资人阅读 / 内部战略对齐
+版本： v0.0.3
+日期： 2026-03-19
+定位基线
+- Category： Family Execution System
+- Product Thesis： personalized AI Agents that build family context and deliver outcomes
+- Capability Layer： EaseFlows（悦流）
+- Brand First Impression： 冷静、可靠、克制、能推进
 
 ---
 目录
-1. 投资/内部摘要（TL;DR）
-2. 机会与问题：为什么是“家庭多 Agent”，为什么是现在
-3. 产品定义：AstraFlow = 家庭 Life OS + 一组可委托的家庭 Agent
-4. 借鉴 OpenClaw 的关键产品机制（并落到我们产品设计）
-5. 全新产品形态：家庭多 Agent（每个家庭成员一个 Agent）
-6. 系统架构（面向产品与工程的统一叙事）
-7. 安全、隐私与“人在回路”：可控自治的设计
+1. 投资 / 内部摘要（TL;DR）
+2. 机会与问题：为什么是家庭执行，为什么是现在
+3. 产品定义：AstraFlow = Family Execution System + personalized AI Agents
+4. 来自 Agent Infrastructure 的关键验证（以 OpenClaw 为代表）
+5. 产品形态：每个家庭成员一个 AI Agent
+6. 系统架构：从 Interface 到 Execution 的统一叙事
+7. 安全、隐私与 Human-in-the-Loop
 8. 竞争与差异化：我们赢在什么
-9. 商业模式：海外订阅可行；国内订阅难如何破局（多路径策略）
+9. 商业模式：海外订阅主线 + 国内混合路径
 10. 增长与分发：从家庭组织者切入到全家渗透
-11. 指标体系（北极星指标/阶段性指标/成本指标）
-12. 路线图：0–18 个月的产品与商业节奏
+11. 指标体系：衡量“交付结果”，而不是“聊了多少”
+12. 路线图：0–18 个月产品与商业节奏
 13. 风险与对策
-14. 附录：参考资料（OpenClaw 与商业模式研究）
+14. 附录：参考资料与外部验证
 
 ---
-1. 投资/内部摘要（TL;DR）
+1. 投资 / 内部摘要（TL;DR）
 1.1 一句话
-AstraFlow 是面向家庭的 Agentic System（家庭 Life OS）：以家庭组织者为入口，驱动“每个家庭成员一个 Agent”的协作网络，将家庭碎片信息转化为可执行行动，并通过「天赋系统」把家庭/专业经验沉淀为可复用、可演化的家庭 SOP。
-1.2 我们在补的关键缺口（对 v0.0.1 的“结构化增强”）
-v0.0.1 的叙事已经很强（家庭组织者、多智能体、魔法日记、天赋系统、隐私路线图）。但它还缺少一个能让人“一秒感到上头”的产品结构：像 OpenClaw 那样的“常驻 + 自主 + 可委托 + 可扩展”的智能体体验。
-这份 v0.0.2 的核心补强是：
-- 将产品从“一个家庭 AI 管家团队”进一步具象化为：
-  - 一个家庭 Gateway（家庭中枢）
-  - N 个家庭成员 Agent（每个人一个，带人格/权限/记忆/目标）
-  - 事件驱动的后台运行（家庭心跳）
-  - 天赋（家庭 SOP）= 可安装/可升级/可审计的能力包
-同时，我们把商业模式从单一“B2C 家庭订阅”升级为海外订阅 + 国内多路径并行，避免被“国内订阅难”一票否决。
-1.3 核心主张
-- 家庭不是“多人聊天场景”，家庭协作的本质是：系统级路由 + 责任闭环（谁该做什么、做到没、没做到怎么办）。
-- 真正可持续的家庭 AI，不是“更懂你”，而是“能帮你把事做完、并越来越懂这个家”。
-- OpenClaw 证明了：当 Agent 具备常驻 + 工具执行 + 记忆持久化 + 事件驱动 + 可扩展技能，用户会把它当成“新的操作系统入口”。AstraFlow 要在家庭场景复现这种体验（但更安全、更低门槛、更符合家庭合规）。
+AstraFlow 是面向现代家庭的 Family Execution System。
+它以 personalized AI Agents 为执行单元，持续构建 family context，把家庭中的碎片信息转化为被分派、被跟进、被完成的结果；并通过 EaseFlows（悦流），把家庭经验与专业方案沉淀为可复用、可审计、可演化的执行协议。
+1.2 我们真正解决的问题
+家庭里最大的缺口，不是缺信息，也不是缺一个会聊天的 AI。
+真正的缺口是：没有一个系统对家庭事务的执行结果负责。
+今天的家庭仍然依赖一个“隐形操作系统”在运转——通常是家庭组织者。
+TA 负责记住信息、协调角色、推动执行、兜底遗漏。
+现有工具能记录、能提醒、能沟通，但很少能真正承担 execution ownership。
+AstraFlow 补的正是这个空白：
+把“总有一个人靠脑子顶着整个家庭运转”的状态，升级为一个持续运行、可路由、可追踪、可学习的系统。
+1.3 为什么是现在
+三股力量第一次同时成立：
+1）AI Agents 正开始走入家庭。
+但当前多数产品仍停留在聊天、问答、提醒或设备控制。
+第一代家庭 AI 解决的是“interaction”，还没有解决“execution”。
+2）技术已进入可用区间。
+Multi-agent orchestration、tool use、persistent memory、Realtime Voice、event-driven systems、protocolized tools、MCP 以及 Skills 等能力，已经让“持续运行、可控自治”的 Agent 从 demo 走向产品。
+3）家庭协调成本在上升。
+双职工、孩子教育、老人照护、跨系统信息碎片化，使家庭越来越像一个高频协作网络。
+问题不再是“有没有工具”，而是“有没有一个系统能把这些工具 harness 起来，形成交付结果的执行层”。
+1.4 我们的产品形态
+AstraFlow 不是 another AI assistant。
+它的基本形态是四层：
+- Household Gateway： 家庭常驻中枢，统一接入人、设备、消息和服务
+- Personalized AI Agents： 每个家庭成员一个 Agent，具备身份、个性、权限、记忆、目标
+- Household Heartbeat： 后台持续运行的事件与检查机制
+- EaseFlows（悦流）： 超越 Skills 的 outcome-oriented execution layer
+1.5 我们的核心主张
+- 家庭协作不是“多人聊天”，而是系统级路由 + 责任闭环
+- 用户不需要另一个会说话的助手，而需要一个会推进结果的 Agent
+- 未来进入家庭的 AI，不会只是更会交流；它必须同时具备 personality、context、execution、trust
+- 真正的护城河不是一次性回答，而是不断积累的 family context + 可复用的 EaseFlows
+1.6 商业模式判断
+- 海外： Family subscription 是主线，专业化 EaseFlows / Care Packs 提升 ARPU
+- 国内： 不押注纯 B2C 订阅，采用“轻订阅 + outcome-based + B2B2C”三路径并行
+- 长期： EaseFlows marketplace / 专业作者生态 / 家庭级 data advantage
 
 ---
-2. 机会与问题：为什么是“家庭多 Agent”，为什么是现在
-2.1 用户问题：家庭组织者的“隐形劳动”是结构性缺口
-家庭组织者（多为女性）承担：
-- 信息整合：聊天记录/学校通知/医院叮嘱/账单/照片/日历
-- 决策协调：孩子/老人/配偶/宠物的优先级与冲突
-- 执行兜底：一旦遗漏或失控，后果通常由组织者承担
-现有工具（微信/备忘录/Todo/日历/健康 App）各管一段：能记录，不能理解；能提醒，不能跟进；能沟通，不能闭环。
-2.2 Why Now：三股力量叠加
-1. Agent 技术成熟：多智能体编排、工具调用、实时语音、多模态、MCP/协议化工具正在进入可用区间。
-2. 用户交互习惯准备好了：
-- 家庭的“默认操作系统”已经是手机 + 家庭群；
-- 语音在家庭场景的心理成本更低；
-- 关键不是“让用户学会提示词”，而是让 Agent 以更自然方式接管事务。
-3. 商业环境变化：
-- 海外用户对订阅工具更成熟；
-- 国内虽然订阅更难，但 AI 带来的“效率溢价”在工具品类已经逐步形成付费心智（参考 36氪对 AI 时代软件付费的报道）。
+2. 机会与问题：为什么是家庭执行，为什么是现在
+2.1 家庭组织者的“隐形劳动”是结构性缺口
+在多数家庭中，总有人承担着家庭的实际运营工作。
+TA 不是名义上的“负责人”，却是事实上的 household operator。
+这类工作包括：
+- 信息整合：聊天、学校通知、账单、医院叮嘱、照片、日历
+- 协调判断：孩子、老人、配偶、宠物、工作安排之间的优先级冲突
+- 执行兜底：事情没人推进时，最终由组织者收尾
+- 情绪承压：一旦遗漏，成本往往不是 inconvenience，而是真实后果
+这是一个长期被低估的市场：
+它不是“生活方式问题”，而是高频、刚性、后果敏感的执行问题。
+2.2 现有方案为什么都不够
+今天的工具大多只解决一段，不解决全链路。
+- Messaging Apps： 信息很多，但没有结构、没有责任归属
+- To-do / Calendar： 能记录，不能判断“谁该做什么、做到没、没做到怎么办”
+- Health / Education Apps： 各管一段，缺少跨场景协调
+- General LLMs / AI assistants： 能回答、能建议，但缺少长期上下文、权限治理与执行所有权
+结果是：
+家庭的真实工作流依然靠“一个人脑内协调 + 手工推进”。
+2.3 Category Opening：家庭需要的是 Execution System
+我们认为，家庭市场真正缺失的不是 another interface，而是三件事同时成立：
+- System of Record： 记住这个家庭长期发生了什么
+- System of Action： 让事情被分派、被跟进、被完成
+- System of Learning： 把经验沉淀成可复用的方法
+这三者叠加，才构成真正的 Family Execution System。
+2.4 为什么“个性化 Agent”是必要的，不是装饰
+家庭不是企业，也不是冷冰冰的任务系统。
+家庭里的 AI 不能只是一个 workflow bot。
+要真正进入家庭，它必须同时满足两点：
+- Capable： 能交付结果，承担执行闭环
+- Personable： 能以稳定口吻、长期记忆和适当个性建立信任
+这也是为什么我们强调 personalized AI Agents。
+未来的家庭 Agent，体验上更接近一个 practical version of Her / household Jarvis，而不是一个无差别的 chatbot。
+但我们不把“人格化”当戏剧化表演，而是把它当成提高信任、配合度和长期使用意愿的交互基础设施。
 
 ---
-3. 产品定义：AstraFlow = 家庭 Life OS + 一组可委托的家庭 Agent
-3.1 产品定位（对内共识）
-- 我们不是：家庭版日历 / 家庭版 Notion / 家庭版聊天机器人
-- 我们是：
-- 家庭生活领域的执行系统（Execution System）：
-- Capture → Structure → Execute → Reflect → Better Memory
-3.2 核心对象
-- 家庭（Family）：是数据边界、权限边界、定价边界
-- 家庭组织者（Family CEO）：是第一切入者、默认“家庭 Admin”
-- 家庭成员（Members）：每个人都拥有一个独立 Agent（人格/权限/记忆/目标不同）
-3.3 核心资产
-- 家庭生活记忆（可追溯、可复盘、可迁移）
-- 天赋系统（可读、可执行、可分享、可交易的家庭 SOP）
-
-[图片]
-
-
----
-4. 借鉴 OpenClaw 的关键产品机制（并落到我们产品设计）
-OpenClaw 的爆火，本质上是把 Agent 做成了“基础设施”：常驻、可控、可扩展、能自主做事。我们借鉴的不是 UI，而是机制。
-下面逐条对齐：
-4.1 Gateway（常驻中枢）→ 我们的「家庭 Gateway」
-OpenClaw：一个长生命周期 Gateway 统一接入多个消息渠道、暴露控制面 API、分发事件、管理会话与工具。
-AstraFlow：家庭 Gateway 统一接入：
-- App（语音/文本/多模态日记）
-- 家庭协作通道（家庭群/通知/短信/邮件等，按地区策略化）
-- IoT/健康数据源（HealthKit/Health Connect 等）
-- 专业服务接口（医院随访/保险/教育平台的可选联动）
-关键：Gateway 常驻 + 事件驱动，让“家庭助手”成为真实的后台系统，而不是一次性问答。
-4.2 Heartbeat（后台心跳）→ 我们的「家庭心跳」
-OpenClaw：heartbeat/cron 让 Agent 在无人触发时也能检查、汇报、推进。
-AstraFlow：家庭心跳用于：
-- 每日/每周家庭简报（健康/学习/日程冲突/待办欠账）
-- 高风险事项监控（老人用药记录缺失、复查临近、孩子考试周期关键节点）
-- 主动触发天赋（触发器：时间、事件、状态变化）
-4.3 Skills（技能生态）→ 我们的「天赋系统」
-OpenClaw：SKILL.md 等“最小能力包”+ 社区分发。
-AstraFlow：TALENT.md/DSL + 脚本/清单/话术 + 权限声明 + 指标定义。
-差异化：家庭场景必须默认更安全（权限、审计、免责声明、专业内容审核）。
-4.4 Local-first / 可审计记忆 → 我们的“家庭记忆可导出/可删除/可审计”
-OpenClaw 强调文件化记忆的可治理性。我们延续：
-- 关键行为必须可追溯（谁触发、做了什么、为什么）
-- 家庭数据默认强隔离
-- 支持导出/删除（合规与信任是长期护城河）
-4.5 可控自治：Tool Policy / Sandbox → 我们的“分层权限 + 沙箱执行 + 人在回路”
-OpenClaw 的风险讨论也提醒我们：高权限 Agent 必须像基础设施一样治理。
-AstraFlow 的策略：
-- 每个家庭成员 Agent 都有独立权限集
-- 每条天赋声明可调用工具与风险等级
-- 高风险动作：默认“需要确认”
-- 沙箱执行：对可编程工具/脚本执行，隔离文件系统与网络
+3. 产品定义：AstraFlow = Family Execution System + personalized AI Agents
+3.1 我们不是什么
+AstraFlow 不是：
+- 家庭版日历
+- 家庭版 Notion
+- 家庭版 chat assistant
+- 智能家居控制面板
+- 情绪陪伴产品
+- 单点健康管理 App
+3.2 我们是什么
+AstraFlow 是一个面向现代家庭的 Family Execution System。
+本质上，AstraFlow harnesses family context、personalized AI Agents 与 EaseFlows，形成一个持续运行的家庭执行层。
+它的主循环是：
+Capture → Structure → Route → Execute → Follow Through → Reflect → Build Context
+这不是“更聪明地记录生活”，而是“让家庭事务形成结果”。
+3.3 核心产品承诺
+AstraFlow 对用户的承诺不是“更懂你”，而是三件更硬的事：
+1）帮你把家庭信息转成行动。
+不是停在消息和提醒，而是进入分派、确认、执行与复盘。
+2）帮你把责任从一个人脑子里拿出来。
+让家庭运行不再依赖某个人永远在线、永远记得、永远兜底。
+3）帮你把这个家的方法沉淀下来。
+不是只留下聊天记录，而是留下能重复使用的 Flows。
+3.4 品牌应该给人的第一印象
+AstraFlow 的第一印象不该是“聪明”，而该是：
+- 冷静
+- 可靠
+- 克制
+- 能推进
+它不是一个喧闹的 AI 品牌。
+它更像一个沉着的家庭执行系统：不炫技，不打扰，但关键时刻不掉链子。
+3.5 对外定位表达（建议统一）
+中文：
+AstraFlow 不是另一个家庭助手，而是家庭执行系统。
+它以个性化 AI Agents 持续构建家庭上下文，把碎片信息转化为可交付结果，并通过 EaseFlows（悦流）让家庭经验持续复利。
+英文：
+AstraFlow is not a family assistant. It is a Family Execution System.
+Powered by personalized AI Agents, it builds household context over time and turns fragmented family information into coordinated outcomes.
 
 ---
-5. 全新产品形态：家庭多 Agent（每个家庭成员一个 Agent）
-5.1 为什么要从“团队 of agents”升级到“每人一个 agent”
-v0.0.1 的 Team-of-Agents 结构是正确的工程方向，但在产品呈现上，用户容易把它理解成“一个更复杂的 AI 管家”。
-OpenClaw 的启示是：人格化的智能体 + 可委托 + 可自主推进，会显著提升吸引力和粘性。
-家庭场景更适合“每人一个 Agent”的原因：
-- 家庭天然多角色：父母/孩子/老人/照护者
-- 权限天然不同：孩子不该看到家庭财务；老人不该被复杂提示打扰
-- 记忆天然分区：每个人的健康、情绪、学习、日程都应当独立
-- 协作天然需要路由：一个事情该让谁确认？谁负责执行？谁只是被告知？
-5.2 家庭 Agent 的“产品定义”（建议写进产品 PRD 的统一模板）
-每个成员 Agent 都应有：
-1. 身份（Identity）：名字、角色、称呼、口吻
-2. 目标（Goals）：该成员最关心的长期目标（健康/学习/作息/家庭关系）
-3. 权限（Permissions）：可见数据范围、可执行动作范围
-4. 记忆（Memory Scope）：事实记忆/偏好/历史轨迹（可导出）
-5. 工具（Tools）：能做什么（通知、日历、日记写入、健康数据读取、家居控制等）
-6. 触发器（Triggers）：心跳/定时/事件
-7. 人类确认策略（HITL）：哪些动作必须由谁确认
-5.3 我们的“家庭 Agent 矩阵”（建议版本）
-以 1 个家庭为例：
-- 家庭 CEO Agent（组织者）：系统主控、跨成员协调、冲突解决
-- 爸爸 Agent / 妈妈 Agent：个人日程/待办/情绪状态；对家庭 CEO 的协作请求做确认与执行
-- 孩子 Agent：学习节奏/情绪日记/习惯养成（更强的边界与保护）
-- 老人 Agent：用药/复查/异常提醒（强免责声明 + 简化交互）
-- 家庭设备 Agent（可选）：负责 IoT 环境与家庭设备的“意图执行”（如温度、灯光、空气质量）
-5.4 协作机制：不是“多人聊天”，而是系统级路由
-我们将协作定义为：
-- Action Routing：系统判断“这件事该找谁”，并把任务派给对应 Agent/成员
-- Stateful Follow-up：系统对“未完成”负责，自动跟进、提醒、升级
-- Reflect & Learn：事情结束后自动复盘，写入家庭记忆与天赋
-这与 YC.md 里的表达一致，但在 v0.0.2 中我们把它落到了“家庭成员 Agent”的具体机制。
-
----
-6. 系统架构（面向产品与工程的统一叙事）
-本节把 v0.0.1 的 L1–L5 叙事保留，并补上“家庭 Gateway + 多成员 Agent”的映射关系，使 BP 更像“可交付系统”。
-6.1 L1：接口与网关层（Interface/Gateway Layer）
-- AstraFlow 家庭 Gateway（常驻）
-- 接入：App（Realtime Voice）、Web、IoT/健康数据、消息/通知通道
-- 输出：标准化事件流（SSE/WS）与 UI 操作回路（AG-UI）
-6.2 L2：编排层（Orchestration Layer）
-- StatefulContextManager / Session State 原子持久化
-- 多成员 Agent 路由：按家庭成员身份/权限/场景选择 Agent
-- 触发器系统：心跳/定时/事件
-6.3 L3：业务逻辑层（Business Logic）
-- 家庭 CEO MetaPlanner：统一规划与拆解
-- Sub-Agents/Workers：按需创建、最小权限
-- 天赋执行器：解释 TALENT DSL → 具体工具调用
-6.4 L4：数据持久化层（Data Persistence）
-- messages.json（可审计） + state.json（机器状态）分离
-- 家庭记忆：按成员分区 + 家庭公共区（共享但可控）
-- 天赋文件与版本：TALENT.md + scripts/checklists
-6.5 L5：隔离与工具层（Isolation & Tools）
-- Sandbox：文件系统/网络白名单
-- 工具定义：把“生活环境 CRUD”封装为工具 API（禁止直接 DB 操作）
-- MCP：连接外部服务与协议化工具
-
----
-7. 安全、隐私与“人在回路”：可控自治的设计
-OpenClaw 的安全争议告诉我们：越强的 Agent，越要像“基础设施”一样治理。
-7.1 核心原则
+4. 来自 Agent Infrastructure 的关键验证（以 OpenClaw 为代表）
+我们借鉴的不是 UI，而是机制。
+以 OpenClaw 为代表的一批 agent infrastructure 产品，验证了一个关键事实：
+当 Agent 具备 persistent runtime、tool use、memory、event-driven execution 与 extensibility 时，用户会开始把它当成新的 operating layer。
+AstraFlow 要做的，是把这套机制翻译进家庭场景，并加上更强的安全、权限与信任设计。
+4.1 Persistent Gateway → Household Gateway
+家庭不是一次性对话场景，而是持续发生的系统。
+AstraFlow 的 Household Gateway 统一接入：
+- App（text / voice / multimodal capture）
+- 通知与消息渠道
+- Calendar / health data / IoT
+- 外部专业服务接口（按地区与合规策略选择）
+Gateway 的意义不是连接更多 API，
+而是让家庭 AI 从“被叫醒的 assistant”变成“持续运行的 system”。
+4.2 Heartbeat → Household Heartbeat
+家庭事务不是用户每次都记得发起。
+所以系统必须具备 Household Heartbeat：
+- 每日 / 每周 summary
+- 高风险事项检测
+- 状态变化触发
+- 到期 / 缺失 / 异常跟进
+Heartbeat 让 AstraFlow 不只是响应，而是主动推进。
+4.3 Skills → EaseFlows（悦流）
+我们不采用普通的 “Skills” 叙事。
+因为对家庭来说，Skills 太像功能插件，无法表达真正的价值层。
+EaseFlows（悦流） 是 AstraFlow 的核心能力层。
+它不是简单的 Skills，而是一个 outcome-oriented execution layer。
+一个 EaseFlow 通常包含：
+- 目标（Goal）
+- 上下文输入（Context）
+- 触发器（Trigger）
+- 角色与权限（Roles / Permissions）
+- 工具调用（Tools）
+- 沟通策略（Communication Pattern）
+- 确认与升级机制（Confirmation / Escalation）
+- 异常处理（Exception Handling）
+- 结果指标（Outcome Metrics）
+换句话说，EaseFlows 不是“会做某件事的技能”，
+而是“把一类家庭事务稳定跑完的方法”。
+4.4 Auditable Memory → Family Context
+AstraFlow 不把 memory 当成玄学。
+我们把它定义为 family context：一个可分区、可解释、可导出、可删除、可审计的家庭长期上下文系统。
+这既是产品价值，也是信任基础。
+4.5 Controlled Autonomy → Permissioned Execution
+越强的 Agent，越需要像基础设施一样治理。
+AstraFlow 的原则是：
 - 默认最小权限（least privilege）
-- 关键动作强制确认（尤其是：对外沟通、支付、删除/修改关键数据、医疗相关建议）
-- 全链路可追溯：解释“为什么这样做”、可回放
+- 高风险动作强制确认
+- 关键行为可追溯、可解释
+- 可编程能力运行于 sandbox
+- 所有 EaseFlows 有明确权限声明与风险等级
+
+---
+5. 产品形态：每个家庭成员一个 AI Agent
+5.1 为什么不是“一个更大的家庭 AI”
+家庭天然是多角色、多边界、多目标的系统。
+如果只有一个通用 Agent，用户很快会遇到问题：
+- 谁能看到什么？
+- 谁能执行什么？
+- 这个提醒是给谁的？
+- 这个决定需要谁确认？
+- 这个历史记忆属于个人，还是属于全家？
+因此，AstraFlow 的产品形态不是“一个会分身的助手”，
+而是每个家庭成员一个 personalized AI Agent。
+5.2 我们对 personalized AI Agent 的定义
+每个家庭成员的 Agent 都应具备：
+1. Identity：名字、角色、称呼、稳定口吻
+2. Personality：适度个性与交流风格，用于建立长期信任，而非表演化人设
+3. Goals：围绕该成员的长期目标与日常优先级
+4. Permissions：可见数据范围与可执行动作边界
+5. Memory Scope：个人记忆、共享记忆、可导出的上下文边界
+6. Tools：通知、Calendar、日志写入、健康数据读取、设备控制等
+7. Triggers：time-based、event-based、state-based
+8. HITL Policy：哪些动作必须由谁确认
+5.3 这类 Agent 的产品价值
+我们认为，进入家庭的 Agent 不是“更像人”就够了。
+它必须同时具备：
+- relationship layer：用户愿意和它交流
+- execution layer：系统能把事做完
+- trust layer：每一步边界清楚、可解释、可审计
+只有三层同时成立，它才会从 novelty 变成 household infrastructure。
+5.4 典型 Agent 矩阵
+以一个家庭为例：
+- Household Operator Agent：跨成员协调、冲突解决、周计划与家庭总览
+- Parent Agents：个人日程、待办、情绪与协作确认
+- Child Agent：学习节奏、习惯养成、保护性边界更强
+- Elder Care Agent：用药、复查、异常提醒，强调简洁交互与强免责声明
+- Home / Device Agent（可选）：负责家庭设备与环境控制
+5.5 协作机制：不是多人聊天，而是系统级路由
+AstraFlow 的协作不以“拉群聊”为核心，而以三件事为核心：
+- Action Routing：判断这件事该找谁
+- Stateful Follow-up：对未完成事项持续跟进
+- Reflect & Learn：完成后写入 context，并沉淀为 EaseFlows
+
+---
+6. 系统架构：从 Interface 到 Execution 的统一叙事
+6.1 L1：Interface / Gateway Layer
+- Household Gateway 常驻运行
+- 接入 App、Web、voice、IoT、health data、messages
+- 输出标准化 event stream 与 UI action loop
+6.2 L2：Orchestration Layer
+- Stateful context management
+- Family-member routing
+- Trigger engine（heartbeat / cron / event / state change）
+- Session persistence
+6.3 L3：Business Logic Layer
+- Household planner / meta coordinator
+- Worker Agents with minimal permissions
+- EaseFlow executor：将声明式 Flow 翻译为具体执行动作
+6.4 L4：Data Persistence Layer
+- 消息与状态分层持久化
+- Personal memory / shared family context 分区
+- EaseFlows 版本化管理
+- 可回放的执行日志与 trace
+6.5 L5：Isolation & Tool Layer
+- sandbox execution
+- network / file whitelist
+- external tool abstraction
+- MCP / protocolized integrations
+这套架构的核心不是“复杂”，而是三个词：
+- Persistent
+- Permissioned
+- Outcome-oriented
+
+---
+7. 安全、隐私与 Human-in-the-Loop
+7.1 核心原则
+AstraFlow 不把家庭场景当成“低风险 consumer AI”。
+相反，我们把它视作一个高信任系统，默认采用更严格的治理原则：
+- least privilege
+- auditable actions
+- explainable decisions
+- reversible high-risk operations
+- human confirmation where needed
 7.2 家庭场景的特殊约束
-- 孩子/老人属于高敏感人群：更强的边界与保护
-- 健康相关天赋必须：
-  - 明确免责声明
-  - 避免“诊断/处方式”表达
-  - 关键步骤由家庭组织者确认
-7.3 技术护栏（结合我们现有能力）
-- 沙箱执行：对脚本/工具链执行隔离
-- 权限/工具白名单：按成员 Agent、按天赋声明
-- 审核体系：
-  - 官方天赋库（内置）
-  - 专业天赋包（机构/认证作者）
-  - 家庭 UGC 天赋（更严格限制 + 自动检测）
+家庭不同于一般消费工具，因为它包含：
+- 孩子与老人等高敏感人群
+- 健康、教育、财务等后果敏感领域
+- 多成员之间天然不对称的权限结构
+- 长期上下文积累带来的信任负债
+因此，我们必须把边界做进系统，而不是做成文案承诺。
+7.3 具体设计
+- 每个 Agent 独立权限集
+- 每个 EaseFlow 明确声明风险等级与可调用工具
+- 对外沟通、支付、删除、医疗相关建议等高风险动作默认确认
+- 所有执行链路有 trace
+- 关键记忆可导出、可删除、可审计
+- sandbox 隔离脚本与可编程能力
+7.4 我们对“人格化 Agent”的克制
+我们相信个性化，但不鼓励过度拟人化。
+原因很简单：在家庭场景里，trust 不来自表演，而来自边界和结果。
+个性是提高亲近感与使用粘性的方式；
+可信度来自稳定性、解释性与交付能力。
 
 ---
 8. 竞争与差异化：我们赢在什么
-8.1 相对通用大模型/聊天助手
-- 通用模型：No Context（缺家庭长期状态）+ No Execution Ownership（不对完成负责）
-- AstraFlow：Stateful（家庭记忆）+ Execution（工具与路由）+ SOP（天赋）
-8.2 相对传统家庭/健康/日程 App
-- 传统 App：No Brain（不理解）+ No Action（不执行/不跟进）
-- AstraFlow：可委托的家庭 Agent + 系统级协作路由 + 闭环复盘
-8.3 核心护城河（可落地、可量化）
-1. 家庭生活记忆：迁移成本高
-2. 天赋体系：家庭与专业经验可复用、可演化
-3. 家庭 Agent 网络：每人一个 Agent 的协作与路由，形成家庭级网络效应
-4. 信任与合规：家庭场景的隐私与安全能力
+8.1 相对 General LLM / Chat Assistant
+它们擅长回答，不擅长承担。
+问题在于：
+- no persistent household context
+- no execution ownership
+- no permission model
+- no family-specific routing
+- no operational memory compounding
+AstraFlow 的差异是：
+- 有持续运行的 context
+- 有角色与权限
+- 有事件驱动与跟进
+- 有 EaseFlows 作为执行与复盘单元
+8.2 相对传统家庭 / 健康 / 日程 App
+它们是工具集合，不是执行系统。
+传统 App 的缺口：
+- no reasoning across fragmented inputs
+- no action routing
+- no follow-through
+- no reusable household playbooks
+AstraFlow 的差异：
+- 把跨场景信息整合成家庭级上下文
+- 把事务派给正确角色
+- 对结果闭环负责
+- 把经验沉淀为可复用 Flow
+8.3 相对 Smart Home / Voice Assistant
+它们更偏 device-centric，不是 household-centric。
+AstraFlow 不是为了控制设备而存在。
+设备只是家庭执行网络中的一个节点。
+我们的核心是家庭关系、责任结构与长期上下文。
+8.4 核心护城河
+我们认为 AstraFlow 的护城河来自四层：
+1）Family Context
+家庭级上下文是长期积累资产，迁移成本高。
+2）EaseFlows（悦流）
+不是一次性 automation，而是不断复用、升级、沉淀的执行协议。
+3）Personalized Agent Network
+每个成员一个 Agent 的权限、记忆与关系网络，形成家庭内部协作壁垒。
+4）Trust Infrastructure
+隐私、审计、边界控制、可解释性，尤其在家庭场景中是长期护城河，而非合规附属品。
 
 ---
-9. 商业模式：海外订阅可行；国内订阅难如何破局（多路径策略）
-9.1 海外市场（优先）：家庭订阅 + 专业天赋订阅/付费包
-主线：订阅制（Family Plan）
-- Free（单人/单天赋/低频心跳）
-- Family（按家庭计费，解锁多成员 Agent + 完整天赋执行 + 更高额度）
-- Pro Care Packs（可选增值包）：
-  - 慢病/术后照护包
-  - 考试季/学习节奏包
-  - 情绪陪伴包
-长期：天赋市场分成
-- 专业作者：按包/按周期订阅
-- 平台抽成
-9.2 国内市场（现实约束）：订阅难，但不是无解
-我们不押注“纯订阅”，而是设计 3 条并行商业路径，根据验证结果择优加码。
-路径 A：轻订阅 + 明确价值点（工具品类的“效率溢价”）
-国内并非完全不能订阅，但需要：
-- 明确、可感知、可量化的价值（省时间/省心/减少严重错误）
-- 梯度付费（低门槛）+ 分层权益（高价值高价）
-参考：国内 AI 工具涨价与用户付费心智变化（36氪报道指出用户愿为真正提效的 AI 功能付费）。
-产品化策略：
-- 低价基础会员（覆盖核心功能，让用户形成习惯）
-- 高价值能力单独做“高阶权益包”（类似 SVIP 思路，但要更克制）
-  - 例如：老人慢病/术后照护包（高价值、低频但关键）
-路径 B：按效果/按结果付费（Outcome-based）
-国内对“订阅买未来”敏感，但对“花钱解决一次关键问题”更容易接受。
-参考：21财经提到 AI 商业模式从“为功能付费”向“为效果付费”转变，并出现“基础订阅费 + AI 创造价值分成”的混合模式。
-在家庭场景，我们可定义可计量的“效果单元”（示例）：
-- 成功执行一次“复查前 24h 报告 + 家属确认 + 日历同步”
-- 成功完成一次“家庭周计划（冲突消解 + 分发 + 跟进）”
-- 成功跑完一次“术后 30 天随访流程”
-实现方式（可选）：
-- 按次购买“执行包”（credits）
-- 按阶段购买“照护周期包”（例如 30 天/90 天）
-- 对专业天赋包采用“按周期付费 + 达成指标返现/升级”的混合机制
-路径 C：B2B2C（国内更现实的规模化通道）：医险/运营商/硬件生态
-国内家庭场景的分发与付费，更容易依托“已有支付与服务关系”的渠道：
-- 保险（健康险/高端医疗险/慢病管理）：将 AstraFlow 作为家庭端随访与照护工具
-- 医院/互联网医院：术后随访与长期管理工具
-- 运营商/家庭宽带：家庭账号体系天然适配“家庭 Plan”
-- IoT/硬件：家庭屏、智能音箱、手表等做“硬件 + 服务包”
-原则：不做定制，只输出标准能力，避免被 B 端拖死。
-9.3 天赋市场在国内的现实版本：从“交易”到“服务化”
-国内做“UGC 市场交易”门槛更高（审核、合规、支付、纠纷）。可采用渐进策略：
-- 阶段 1：官方天赋库 + 合作机构天赋（强审核）
-- 阶段 2：认证专业作者（医生/心理/教育），以“服务包/随访包”方式售卖
-- 阶段 3：家庭 UGC 以“模板分享”为主，交易延后（或做品牌赞助/激励）
+9. 商业模式：海外订阅主线 + 国内混合路径
+9.1 海外市场：Family Subscription 为主线
+海外市场更适合从家庭订阅切入。
+核心套餐
+- Free：单人 / 限制 Flow / 低频 heartbeat
+- Family：多成员 Agents、完整 EaseFlows、更多执行额度
+- Care / Pro Packs：面向高价值场景的增值能力包
+高价值 Packs 示例
+- Elder care coordination pack
+- Post-op recovery pack
+- Exam-season planning pack
+- Emotional routine / family rhythm pack
+9.2 长期商业化方向：EaseFlows Marketplace
+长期看，EaseFlows 是天然的生态层。
+但我们的路径不是一开始就做开放 UGC 市场，
+而是分阶段推进：
+阶段 1： 官方 EaseFlows 库
+阶段 2： 机构 / 专业作者合作包
+阶段 3： 认证创作者生态与 marketplace
+9.3 国内市场：不押注纯订阅
+国内市场的现实约束很明确：
+纯 B2C 订阅很难成为唯一假设。
+因此我们采用三路径并行：
+路径 A：轻订阅 + 高价值权益包
+目标是先建立使用习惯，再把关键场景做成高价值加价项。
+适合的能力：
+- 家庭周计划闭环
+- 老人慢病 / 术后照护包
+- 关键周期管理包
+路径 B：Outcome-based 收费
+国内用户对“订阅未来”敏感，但对“为一次真实结果付费”更容易接受。
+可定义的 outcome unit 包括：
+- 一次复查流程完整跑完
+- 一次家庭周计划完整执行
+- 一个术后 30 天照护流程完成
+对应形式：
+- 按次 credits
+- 按阶段周期包
+- 基础订阅 + outcome package 混合模式
+路径 C：B2B2C
+国内更现实的规模化通道包括：
+- 保险
+- 医院 / 互联网医院
+- 运营商家庭账号体系
+- 智能硬件与家庭终端
+原则很明确：
+输出标准能力，不做重定制，不被 B 端项目制拖死。
 
 ---
 10. 增长与分发：从家庭组织者切入到全家渗透
-10.1 增长飞轮（建议写进对外叙事，但内部先统一）
-1. 家庭组织者用一个“小天赋”跑通（低摩擦、高价值）
-2. 触发协作：系统自动需要他人确认/执行 → 拉入家庭成员
-3. 多成员带来更强协作闭环与记忆完整度 → 组织者更离不开
-4. 天赋复用与市场：专业方案/高价值包提升 ARPU
-10.2 Wedge（更聚焦的首发场景）
-为避免“家庭范围太大”，我们明确首发 wedge：
-- 家庭周计划的决策与执行（周五只是触发时刻）
-- 与之并行的高价值场景（用于付费验证）：
-  - 老人慢病：用药/复查/异常提醒
-  - 考试周期：情绪/学习节奏
+10.1 核心 wedge
+为避免“家庭”这个词过大，我们明确首发 wedge：
+- 家庭周计划与执行闭环
+- 高价值照护协同场景
+原因很直接：
+- 痛点真实
+- 频率够高
+- 结果可验证
+- 付费意愿更容易建立
+10.2 增长飞轮
+AstraFlow 的增长不是“内容裂变”，而是协作渗透。
+飞轮如下：
+1. 家庭组织者先用一个低摩擦、高价值的 EaseFlow
+2. 系统为了完成任务，自动触发他人确认 / 配合
+3. 新成员被拉入，家庭上下文更完整
+4. 执行闭环率提升，组织者依赖度增加
+5. 更多 EaseFlows 被激活，ARPU 上升
+6. 家庭逐渐把 AstraFlow 当成默认执行层
+10.3 分发思路
+Consumer 侧
+- 家庭组织者社群
+- 照护、教育、效率类内容触达
+- 高价值问题场景驱动下载，而非“体验 AI”
+Partnership 侧
+- 保险 / 医疗 / IoT / 运营商合作试点
+- 以 EaseFlows 或 care packs 作为合作载体
+- 保持标准化输出，避免定制化陷阱
 
 ---
-11. 指标体系（北极星指标/阶段性指标/成本指标）
-11.1 北极星指标（North Star）
-- 每周“成功执行的天赋次数” / “被采纳并执行的家庭计划次数”
-理由：衡量我们是否真的把事做完，而不只是“聊得多”。
+11. 指标体系：衡量“交付结果”，而不是“聊了多少”
+11.1 North Star Metric
+我们不把聊天量、提问次数当核心指标。
+真正的 North Star 应该是：
+每周完成的 EaseFlows 数 / 每周完成的家庭执行闭环数
+这衡量的是：
+AstraFlow 是否真的在把事情跑完，而不是只停留在“参与了对话”。
 11.2 阶段性指标
-- Active households（活跃家庭数）
-- 家庭组织者 7/30 日留存
-- 多成员渗透率（家庭内被拉入的成员数）
-- 协作闭环率（派发→确认→完成）
-- 被打断率/回滚率（可用性与打扰度）
+- Active households
+- Household organizer 7/30 日留存
+- Multi-member penetration rate
+- Completion rate of routed actions
+- Human acceptance rate of EaseFlow outcomes
+- Interruption / rollback rate
+- Weekly household context growth with valid usage
 11.3 成本与效率指标
-- 单家庭月均推理成本（按功能拆分：心跳/天赋执行/语音）
-- 高价值包毛利率
-- 模型策略：主模型/轻模型分层、缓存策略、Worker 预算
+- 单家庭月均 inference cost
+- heartbeat / voice / Flow execution 分项成本
+- 高价值 packs 毛利率
+- Model mix efficiency
+- Worker budget utilization
 
 ---
-12. 路线图：0–18 个月的产品与商业节奏
-0–3 个月：产品形态切换与验证
-- 家庭 Gateway 常驻体系 + 家庭心跳（MVP）
-- “每人一个 Agent”基础框架（身份/权限/记忆分区）
-- Wedge：家庭周计划闭环（派发-确认-跟进-复盘）
-- 付费验证：国内用“执行包/照护周期包”做最小可行付费
-3–6 个月：天赋系统升级 + 早期生态
-- TALENT.md + DSL 执行器加强（条件/异常/指标）
-- 官方天赋库：3–5 条“高复用高价值”天赋
-- 专业合作 PoC：1–2 个“专业天赋包”（强审核）
-6–12 个月：商业路径分叉与规模化
-- 海外：家庭订阅体系成熟（Family Plan + Pro Packs）
-- 国内：
-  - 路径 A（轻订阅+权益包）/路径 B（效果付费）二选一加码
-  - 路径 C（B2B2C）签 1–2 个渠道试点（保险/医院/运营商择一）
-12–18 个月：隐私与端侧能力试点
-- Data Plane（本地）/Control Plane（云）分离的可交付版本
-- 端侧敏感感知 PoC（情绪粗分类/异常事件检测）
-- 高敏家庭模式（更强本地化、更强可控）
+12. 路线图：0–18 个月产品与商业节奏
+0–3 个月：验证“执行系统”而不是“聊天助手”
+- Household Gateway MVP
+- Household Heartbeat 基础能力
+- 每成员一个 Agent 的基础框架
+- 首个 wedge：家庭周计划执行闭环
+- 首个高价值场景：照护协调最小可用版本
+- 国内开始测试 outcome-based pack
+3–6 个月：把 EaseFlows 跑成可复用能力
+- EaseFlows DSL 与执行器强化
+- 官方 EaseFlows 库上线
+- 完善 trace、权限、风险分级
+- 1–2 个专业合作 PoC
+- 优化多成员渗透与家庭留存
+6–12 个月：商业路径分叉与规模化验证
+- 海外 Family plan 成熟
+- Pro / Care Packs 提升 ARPU
+- 国内验证轻订阅与 outcome-based 哪条更强
+- 启动 1–2 个 B2B2C 渠道试点
+- 完善家庭 context 的分层与治理
+12–18 个月：从执行系统走向家庭操作层
+- Data plane / control plane 分离
+- 更强的 local-first 能力试点
+- 高敏感家庭模式
+- 更成熟的专业作者与机构 Flow 体系
+- 为长期 marketplace 做基础设施准备
 
 ---
 13. 风险与对策
-风险 1：国内付费难
-- 对策：不押注纯订阅；三条商业路径并行；用“高价值包/按效果付费”先跑通收入。
-风险 2：范围太大、产品像“功能堆叠”
-- 对策：明确 wedge；把产品说成同一条主循环（Capture→Execute→Reflect）。
-风险 3：隐私与信任
-- 对策：把隐私当架构约束；家庭为隔离单元；可导出删除；关键行为可解释有 Trace。
-风险 4：Agent 安全（prompt injection/能力滥用/天赋投毒）
-- 对策：最小权限、沙箱、审核、分级作者体系、HITL。
+风险 1：Category 过大，外界听成“泛家庭 AI”
+对策：
+坚持主定位为 Family Execution System，首发明确 wedge，不用“生活方式 AI”话术。
+风险 2：产品像功能堆叠，而不是一个系统
+对策：
+所有功能都必须归入同一条主循环：
+Capture → Route → Execute → Reflect → Build Context
+风险 3：国内纯订阅难
+对策：
+不把公司建立在单一路径上；同时验证轻订阅、outcome-based 与 B2B2C。
+风险 4：隐私与信任门槛高
+对策：
+把 trust 做成架构约束：权限、审计、可删除、可解释、sandbox，不做后补。
+风险 5：Agent 个性化做得过头，削弱专业感
+对策：
+把 personality 当作 interaction design，不当作品牌主角。
+AstraFlow 的核心仍是结果、边界与可信执行。
+风险 6：Agent 安全问题（prompt injection / tool misuse / Flow poisoning）
+对策：
+最小权限、分级作者体系、sandbox、人工确认、自动审核与 trace 全链路结合。
 
 ---
-14. 附录：参考资料（与本 BP 相关的关键依据）
-A. OpenClaw 模式参考
-- OpenClaw Gateway 架构文档：
-https://docs.openclaw.ai/concepts/architecture
-- OpenClaw 研究报告（本项目内生成）：
-/home/user/workspace/OpenClaw_互联网讨论与架构趋势商业模式报告_2026-03-09.md
+14. 附录：参考资料与外部验证
+A. Agent Infrastructure 机制验证
+- OpenClaw Gateway / persistent agent architecture documentation
+- OpenClaw 相关研究与讨论，验证 persistent + tool-based + event-driven agent 的产品趋势
 B. 国内商业模式与付费心智
-- 36氪：AI 时代中国用户软件付费心智变化（工具效率溢价）：
-https://m.36kr.com/p/3537073748647044
-- 21财经：AI 商业模式从“为功能付费”向“为效果付费”，并出现“基础订阅费+价值分成”混合模式：
-https://www.21jingji.com/article/20251230/herald/d288643edb9e03c6f501f4f799160003.html
+- AI 工具在中国市场的效率溢价趋势
+- outcome-based AI business model 的增长与验证路径
+- B2B2C 在家庭场景中的渠道现实性
 
 ---
-变更说明（v0.0.1 → v0.0.2）
-1. 引入 OpenClaw 的“Gateway + Heartbeat + Skills”机制，并映射为：家庭 Gateway + 家庭心跳 + 天赋系统。
-2. 产品形态升级为“每个家庭成员一个 Agent”，强化吸引力与自治性，同时天然形成权限/记忆隔离。
-3. 商业模式从单一路径（B2C 订阅）升级为：海外订阅主线 + 国内三路径并行（轻订阅/效果付费/B2B2C）。
-4. 明确 wedge 场景与北极星指标，增强可执行性与可验证性。
+可直接放在 BP 首页的版本
+Investor one-liner
+AstraFlow is building the Family Execution System for modern households.
+Powered by personalized AI Agents, it builds family context over time, coordinates people and responsibilities, and turns fragmented information into completed outcomes.
+中文版
+AstraFlow 正在构建现代家庭的 Family Execution System。
+它以个性化 AI Agents 为执行单元，持续构建家庭上下文，协调人、责任与流程，把碎片信息转化为被完成的结果。
+一句更有张力的版本
+家庭里一直有一个人在充当操作系统。AstraFlow 终于把这件事做成了产品。
+
