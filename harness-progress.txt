@@ -19,3 +19,17 @@
 [2026-03-18T11:09:37Z] CLAIM [task-006] 定义 AstraFlow landing pages 的 PRD/API/UI 合同文档 worker=codex-product-requirements base=2c5c13e02739b6033bec7e2fa859b40e7a372e25
 [2026-03-18T11:05:00Z] CHECKPOINT [task-006] Generated docs/prd/landing-pages.md, docs/api/landing-pages.md, and docs/ui/landing-pages.md for AstraFlow landing pages; fixed MVP routes, waitlist schema, markdown blog naming convention, and SEO/LLMO route contracts. Linked issue #1 and posted progress comment.
 [2026-03-18T11:15:45Z] COMPLETE [task-006]
+[2026-03-19T00:00:00Z] ADD [task-007] 定义 ref UI 复刻到 TanStack Start 的 PRD/API/UI 合同文档
+[2026-03-19T00:00:00Z] ADD [task-008] 创建 ref UI 复刻 GitHub issue 并映射 Harness 任务
+[2026-03-19T00:00:00Z] ADD [task-009] 按 TDD 在 TanStack Start 中实现 ref UI 复刻页面与交互
+[2026-03-19T00:00:00Z] ADD [task-010] 创建 PR、执行 gh-pr-review 并完成合并
+[2026-03-19T00:00:00Z] CLAIM [task-007] 定义 ref UI 复刻到 TanStack Start 的 PRD/API/UI 合同文档 worker=codex-ref-clone base=a8031ed8a10c7955afef16e927b47ba4654def02
+[2026-03-19T00:00:00Z] CHECKPOINT [task-007] Added docs/prd/ref-clone-ui.md, docs/api/ref-clone-ui.md, and docs/ui/ref-clone-ui.md to map /root/Projects/Frontend/landingPage/ref into TanStack Start routes, static interactions, and validation commands.
+[2026-03-19T00:00:00Z] COMPLETE [task-007]
+[2026-03-19T00:05:00Z] CLAIM [task-008] 创建 ref UI 复刻 GitHub issue 并映射 Harness 任务 worker=codex-ref-clone
+[2026-03-19T00:05:00Z] CHECKPOINT [task-008] Created GitHub issue #8 and linked docs/prd/ref-clone-ui.md, docs/api/ref-clone-ui.md, and docs/ui/ref-clone-ui.md to the issue.
+[2026-03-19T00:05:00Z] COMPLETE [task-008]
+[2026-03-19T00:06:00Z] CLAIM [task-009] 按 TDD 在 TanStack Start 中实现 ref UI 复刻页面与交互 worker=codex-ref-clone base=a8031ed8a10c7955afef16e927b47ba4654def02 issue=#8
+[2026-03-19T06:22:00Z] CHECKPOINT [task-009] Added TanStack Start clone pages for Home, Blog, and Blog detail; replaced starter styles with ref-aligned visual system; generated route files and validated with `bun --bun run test` and `bun --bun run build`. Created TDD checkpoint commit c4962bf.
+[2026-03-19T06:22:00Z] COMPLETE [task-009]
+[2026-03-19T06:23:00Z] CLAIM [task-010] 创建 PR、执行 gh-pr-review 并完成合并 worker=codex-ref-clone base=c4962bf issue=#8
