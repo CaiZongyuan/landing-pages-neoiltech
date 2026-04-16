@@ -53,3 +53,23 @@
 [2026-03-19T07:25:56Z] COMPLETE [task-014]
 [2026-03-19T07:25:56Z] CLAIM [task-015] 创建语言切换 bugfix PR 并完成合并 worker=codex-locale-rerender-fix base=f7a25fe2b03e0e60059a4d0267d963799e911c9b
 [2026-03-19T07:27:58Z] COMPLETE [task-015]
+[2026-04-16T08:11:30Z] ADD [task-017] 定义 landing page 三幕 AIGC 视觉叙事刷新合同文档
+[2026-04-16T08:11:30Z] CLAIM [task-017] 定义 landing page 三幕 AIGC 视觉叙事刷新合同文档 worker=codex-household-agent-refresh base=97a64f31936de0bcff40e224a61923249914e86a
+[2026-04-16T08:11:30Z] ADD [task-018] 创建 landing page 三幕 AIGC 视觉叙事刷新 GitHub issue 并映射 Harness
+[2026-04-16T08:11:30Z] ADD [task-019] 按 TDD 将三张 AIGC 图片整合进 landing page 并完成验证
+[2026-04-16T08:18:00Z] ADD [task-017] 定义 landing page 三幕 AIGC 视觉叙事刷新合同文档
+[2026-04-16T08:18:00Z] ADD [task-018] 创建 landing page 三幕 AIGC 视觉叙事刷新 GitHub issue 并映射 Harness
+[2026-04-16T08:18:00Z] ADD [task-019] 按 TDD 将三张 AIGC 图片整合进 landing page 并完成验证
+[2026-04-16T08:18:10Z] CLAIM [task-017] 定义 landing page 三幕 AIGC 视觉叙事刷新合同文档 worker=codex-household-agent-refresh base=97a64f31936de0bcff40e224a61923249914e86a
+[2026-04-16T08:22:00Z] CHECKPOINT [task-017] Added PRD/API/UI/test-case contracts for the three-act AIGC visual refresh using assets/01.webp, assets/02.webp, and assets/03.webp as the homepage narrative spine.
+[2026-04-16T08:15:01Z] COMPLETE [task-017]
+[2026-04-16T08:15:15Z] CLAIM [task-018] 创建 landing page 三幕 AIGC 视觉叙事刷新 GitHub issue 并映射 Harness worker=codex-household-agent-refresh base=97a64f31936de0bcff40e224a61923249914e86a
+[2026-04-16T08:24:00Z] CLAIM [task-018] 创建 landing page 三幕 AIGC 视觉叙事刷新 GitHub issue 并映射 Harness worker=codex-household-agent-refresh base=97a64f31936de0bcff40e224a61923249914e86a
+[2026-04-16T08:25:00Z] CHECKPOINT [task-018] Created GitHub issue #17 for the three-act AIGC landing refresh and linked docs/prd/household-agent-visual-refresh.md, docs/api/household-agent-visual-refresh.md, docs/ui/household-agent-visual-refresh.md, and tests/household-agent-visual-refresh-test-cases.md.
+[2026-04-16T08:16:02Z] COMPLETE [task-018]
+[2026-04-16T08:16:02Z] CLAIM [task-019] 按 TDD 将三张 AIGC 图片整合进 landing page 并完成验证 worker=codex-household-agent-refresh base=97a64f31936de0bcff40e224a61923249914e86a
+[2026-04-16T08:26:00Z] CHECKPOINT [task-019] Red: updated src/home-page.test.tsx to require local AIGC asset imports and three-act copy; bun --bun run test failed on missing assets/copy while unrelated Wrangler log writes hit EROFS.
+[2026-04-16T08:29:00Z] CHECKPOINT [task-019] Green: rewrote src/features/ref-clone/pages/HomePage.tsx around three-act narrative sections using assets/01.webp, assets/02.webp, and assets/03.webp; bun --bun run test and bun --bun run build passed.
+[2026-04-16T08:21:44Z] COMPLETE [task-019]
+[2026-04-16T08:31:00Z] CHECKPOINT [task-019] Skipped TDD checkpoint commit because the sandbox denied writing .git/index.lock (read-only file system).
+[2026-04-16T08:32:00Z] COMPLETE [task-019] Three-act landing page refresh implemented locally; issue #17 updated with validation results.

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {
   ArrowRight,
-  Bot,
   Check,
   ChevronDown,
   ShieldCheck,
@@ -9,6 +8,9 @@ import {
   Waypoints,
 } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
+import actOneImage from '../../../../assets/01.webp'
+import actTwoImage from '../../../../assets/02.webp'
+import actThreeImage from '../../../../assets/03.webp'
 import { cn } from '#/lib/utils'
 import {
   Button,
@@ -21,74 +23,133 @@ import { useSiteLocale } from '../lib/siteLocale'
 
 const waitlistSuccessAuditCopy = 'We will share the next product notes and access updates here.'
 
-const homeCopy = {
+type StoryCard = {
+  title: string
+  body: string
+}
+
+type FaqItem = {
+  question: string
+  answer: string
+}
+
+type FooterLink =
+  | {
+      label: string
+      to: string
+      action?: never
+    }
+  | {
+      label: string
+      action: string
+      to?: never
+    }
+
+type HomeCopy = {
+  heroBadge: string
+  heroTitle: string
+  heroBody: string
+  heroBodyAlt: string
+  heroSignals: string[]
+  primaryCta: string
+  secondaryCta: string
+  whyTitle: string
+  whyBody: string
+  whyCards: StoryCard[]
+  act1Eyebrow: string
+  act1Title: string
+  act1Body: string
+  act1Points: string[]
+  act2Eyebrow: string
+  act2Title: string
+  act2Body: string
+  act2Points: string[]
+  principlesTitle: string
+  principlesBody: string
+  principles: string[]
+  act3Eyebrow: string
+  act3Title: string
+  act3Body: string
+  act3Points: string[]
+  faqTitle: string
+  faqBody: string
+  faqs: FaqItem[]
+  mobileMenuTitle: string
+  closeMenuLabel: string
+  navLabels: {
+    whyNow: string
+    worldModel: string
+    faq: string
+    blog: string
+  }
+  waitlistTitle: string
+  waitlistBody: string
+  waitlistBenefits: string[]
+  emailLabel: string
+  emailPlaceholder: string
+  submit: string
+  successNote: string
+  footerKicker: string
+  footerBody: string
+  footerLinks: FooterLink[]
+  imageAlts: {
+    act1: string
+    act2: string
+    act3: string
+  }
+}
+
+const homeCopy: Record<'en' | 'zh', HomeCopy> = {
   en: {
     heroBadge: 'Family Execution System',
-    heroTitle: 'AstraFlow turns family coordination into visible execution.',
+    heroTitle: 'AstraFlow gives modern families a system that can finally hold complexity.',
     heroBody:
-      'Most households do not fail because they lack information. They fail because one person quietly carries the routing, remembering, and follow-through for everyone else.',
+      'The household does not break because information is missing. It breaks because one person keeps absorbing the routing, remembering, and invisible recovery work for everyone else.',
     heroBodyAlt:
-      'AstraFlow is not another family assistant. It is a Family Execution System powered by personalized AI Agents, a persistent Household Gateway, and outcome-oriented EaseFlows.',
+      'She carries the routing, remembering, and invisible recovery work until everyday life starts to feel like a thousand interruptions with no real owner.',
+    heroSignals: ['Household CEO', 'Invisible labor made visible', 'Calm system, not another dashboard'],
     primaryCta: 'Join the waitlist',
     secondaryCta: 'Read the blog',
-    showcaseLabel: 'Household Gateway',
-    showcaseTitle: 'One calm surface for context, routing, and follow-through.',
-    showcaseBody:
-      'Instead of scattering the household across chats, calendars, screenshots, and memory, AstraFlow gives families an operating layer that can hold context and move work forward.',
-    showcaseLoop: 'Capture → Structure → Route → Execute → Follow Through → Reflect → Build Context',
-    showcasePanels: [
-      { label: 'Today', value: '3 priorities', note: 'School conflict, care follow-up, meal planning' },
-      { label: 'Agents', value: '4 roles', note: 'Operator, parent, child, care' },
-      { label: 'EaseFlows', value: 'Reusable', note: 'Outcome-oriented methods, not feature fragments' },
-    ],
-    whyTitle: 'Why now',
+    whyTitle: 'Why this pressure compounds',
     whyBody:
-      'The missing piece is execution ownership. Families already have chat, calendars, reminders, and point tools. What they do not have is a system that owns who should act, what is blocked, and what needs escalation.',
+      'Family operations break down when every signal arrives in a different format, at a different time, and only one person feels responsible for putting it all back into order.',
     whyCards: [
       {
-        title: 'Invisible household labor still sits on one person',
-        body: 'The household operator remains the system of last resort for remembering, nudging, checking, and cleaning up what everyone else misses.',
+        title: 'The burden looks composed from the outside',
+        body: 'Nothing is visibly on fire. The pressure shows up as constant context switching, silent follow-up, and the need to remember what everyone else forgets.',
       },
       {
-        title: 'Current tools solve slices, not the full loop',
-        body: 'Messaging, to-dos, and vertical apps each handle one surface. None of them route work and follow through to outcomes.',
+        title: 'Fragmented tools never become a household operating model',
+        body: 'Chats, calendars, school notes, care reminders, and errands all exist. What is missing is a system that understands how they relate and who should own the next move.',
       },
     ],
-    compareTitle: 'Without AstraFlow',
-    compareBody:
-      'Information fragments pile up. Priorities drift. The household depends on one person’s mental overhead to keep everything moving.',
-    withTitle: 'With AstraFlow',
-    withBody:
-      'Family context becomes structured, routed, permission-aware, and visible. The system compounds methods instead of repeating rescue work.',
-    workflowTitle: 'How AstraFlow works',
-    workflowBody:
-      'AstraFlow builds family context over time, routes work to the right agent, confirms sensitive actions, and keeps refining the operating loop through EaseFlows.',
-    workflowSteps: [
-      {
-        title: 'Capture + Structure',
-        body: 'Household Gateway gathers the signals a family actually lives in.',
-      },
-      {
-        title: 'Route to the right agent',
-        body: 'Personalized AI Agents understand identity, permissions, and priorities.',
-      },
-      {
-        title: 'Execute with control',
-        body: 'High-risk work stays permissioned. Routine coordination moves forward without chaos.',
-      },
-    ],
-    principlesTitle: 'Built like infrastructure, not assistant theater',
+    act1Eyebrow: 'Act 1 · Invisible Load',
+    act1Title: 'The last moment before a better operating layer steps in.',
+    act1Body:
+      'AstraFlow starts where the pressure is real: the household operator is still standing, still composed, but already carrying too many simultaneous obligations for any human memory loop to absorb cleanly.',
+    act1Points: ['School notices colliding with work meetings', 'Care reminders competing with errands and payments', 'A premium home life still running on one overloaded mind'],
+    act2Eyebrow: 'Act 2 · World Model',
+    act2Title: 'The system stops seeing fragments and starts understanding the family.',
+    act2Body:
+      'AstraFlow builds a family world model across people, places, time, tasks, and conflicts. Instead of showing another list, it turns signals into structure, dependencies, priorities, and multi-thread planning that can keep learning over time.',
+    act2Points: ['Resolve conflicts before they become household stress', 'Route decisions by role, context, permissions, and urgency', 'Keep refining rhythm, habits, and memory instead of restarting from scratch'],
+    principlesTitle: 'What the system is optimizing for',
+    principlesBody:
+      'This is not assistant theater. It is a controlled execution layer designed to make a complex household legible, permission-aware, and calmer over time.',
     principles: [
-      'Household Gateway',
-      'Personalized AI Agents',
-      'EaseFlows',
-      'Auditable family context',
+      'Structured household memory',
+      'Conflict-aware planning',
       'Permissioned execution',
-      'Human confirmation on sensitive work',
+      'Calm human confirmation',
     ],
-    faqTitle: 'Frequently asked before you trust a system like this',
+    act3Eyebrow: 'Act 3 · Hand Off Reality',
+    act3Title: 'The product feels light because the system is doing the hard part.',
+    act3Body:
+      'A voice note or a quick photo is enough for AstraFlow to recognize context, update the right task, sync the right family member, and store the signal in long-term household memory. You keep living. AstraFlow handles the complexity.',
+    act3Points: ['Capture a paper notice, medicine box, or shopping need in one motion', 'Let the agent connect the detail to care, schedules, reminders, or purchasing', 'Stay present with family while the system keeps the loop moving'],
+    faqTitle: 'Questions families ask before they trust a system like this',
     faqBody:
-      'For families, the real questions are about boundaries, ownership, and whether the system can actually help under pressure.',
+      'The real evaluation is not whether the UI looks smart. It is whether the system can safely take responsibility without becoming another thing to manage.',
     faqs: [
       {
         question: 'Why not another family assistant?',
@@ -96,9 +157,9 @@ const homeCopy = {
           'Because the missing piece is execution ownership. Families do not need another interface that talks. They need a system that routes work, keeps state, and follows through.',
       },
       {
-        question: 'What makes personalized AI Agents necessary?',
+        question: 'What makes a family world model different from a task list?',
         answer:
-          'Families have different roles, permissions, memory boundaries, and goals. A single generic agent cannot safely decide who should see or do what.',
+          'A task list stores isolated items. A family world model understands people, routines, places, timing, constraints, and conflict patterns, so the system can plan instead of merely recording.',
       },
       {
         question: 'How do you handle sensitive actions?',
@@ -106,25 +167,25 @@ const homeCopy = {
           'AstraFlow treats sensitive work as permissioned execution. High-risk actions stay reviewable, traceable, and gated behind confirmation.',
       },
       {
-        question: 'What happens when a household already has tools in place?',
+        question: 'What does low-friction capture actually mean?',
         answer:
-          'AstraFlow acts as the operating layer above those tools. It structures signals, routes action, and compounds the family’s working methods over time.',
+          'It means the product should meet reality where it happens. A short voice input or a quick photo can be enough to update the household operating loop without making someone stop and manually structure everything.',
       },
     ],
     mobileMenuTitle: 'Navigation',
     closeMenuLabel: 'Close menu',
     navLabels: {
       whyNow: 'Why now',
-      workflow: 'How it works',
+      worldModel: 'World model',
       faq: 'FAQ',
       blog: 'Blog',
     },
-    waitlistTitle: 'Bring less invisible labor into every week.',
+    waitlistTitle: 'See what family life feels like when complexity has an owner.',
     waitlistBody:
-      'Join the list for product notes, operating-loop previews, and early access updates as AstraFlow moves from concept to real household workflows.',
+      'Join the list for product notes, visual demos, and early access updates as AstraFlow moves from narrative to real household workflows.',
     waitlistBenefits: [
-      'Early product notes grounded in the BP',
-      'New EaseFlow previews',
+      'Three-act product storyboards and notes',
+      'New system demos grounded in family reality',
       'Updates when guided pilots open',
     ],
     emailLabel: 'Work email',
@@ -133,80 +194,63 @@ const homeCopy = {
     successNote: waitlistSuccessAuditCopy,
     footerKicker: 'A calm Family Execution System',
     footerBody:
-      'Built for households that need more than fragmented tools, reminders, and invisible coordination labor.',
+      'Built for households that need more than reminders and fragmented apps. Built for the person who has been quietly carrying the load.',
     footerLinks: [
       { label: 'Blog', to: '/blog' },
       { label: 'Why now', action: 'why-now' },
       { label: 'FAQ', action: 'faq' },
     ],
+    imageAlts: {
+      act1: 'A composed woman in a premium home environment surrounded by fragmented household information and invisible pressure.',
+      act2: 'A household agent system visualizing a family world model with planning, conflicts, and structured intelligence around the same woman.',
+      act3: 'The same woman living calmly while using voice and photo capture to hand family tasks to an intelligent system.',
+    },
   },
   zh: {
     heroBadge: 'Family Execution System',
-    heroTitle: 'AstraFlow 把家庭协作从“记得很多”变成“推进结果”。',
+    heroTitle: 'AstraFlow 让现代家庭第一次拥有一个真正能接住复杂性的系统。',
     heroBody:
-      '多数家庭真正的问题不是缺信息，而是总有一个人默默承担路由、记忆、催办和兜底。家庭越复杂，这种隐形劳动越重。',
+      '家庭失控往往不是因为缺信息，而是因为总有一个人长期在吸收路由、记忆、补位与善后，把所有隐形恢复工作都默默扛在自己身上。',
     heroBodyAlt:
-      'AstraFlow 不是另一个家庭助手，而是一个 Family Execution System。它通过 personalized AI Agents、持续运行的 Household Gateway 与 EaseFlows，把家庭信息转成可交付结果。',
+      '她看起来依然体面冷静，但已经被无数家庭事务不断打断。AstraFlow 试图解决的不是待办堆积，而是这种长期无人接管的复杂性。',
+    heroSignals: ['家庭 CEO', '把隐形负担可视化', '不是另一个 dashboard'],
     primaryCta: '加入等待名单',
     secondaryCta: '阅读博客',
-    showcaseLabel: 'Household Gateway',
-    showcaseTitle: '一个更冷静的界面，承接上下文、路由和 follow-through。',
-    showcaseBody:
-      'AstraFlow 不是把家庭拆散在聊天、日历、截图和记忆里，而是提供一个能真正持有上下文并推动事务向前的操作层。',
-    showcaseLoop: 'Capture → Structure → Route → Execute → Follow Through → Reflect → Build Context',
-    showcasePanels: [
-      { label: 'Today', value: '3 个重点', note: '学校冲突、照护跟进、餐食计划' },
-      { label: 'Agents', value: '4 个角色', note: 'Operator、parent、child、care' },
-      { label: 'EaseFlows', value: '可复用', note: '面向结果的方法，而不是零散功能' },
-    ],
-    whyTitle: '为什么是现在',
+    whyTitle: '为什么这种压力会不断叠加',
     whyBody:
-      '真正缺的不是更多工具，而是 execution ownership。家庭已经有聊天、日历、提醒和点状应用，却没有一个系统真正负责谁该做、卡在哪里、何时升级。',
+      '家庭里的信号以不同格式、不同时间、不同优先级涌入，而真正负责把一切重新排好的人，通常始终只有一个。',
     whyCards: [
       {
-        title: '家庭组织者的隐形劳动仍然压在一个人身上',
-        body: '总有人在默默记住信息、协调冲突、追进度、补最后一棒，这部分劳动长期缺少系统支撑。',
+        title: '外表稳定，不代表负担不在上升',
+        body: '真正消耗人的不是一次崩溃，而是长期上下文切换、持续补位、不断提醒和永远记住下一步的压力。',
       },
       {
-        title: '现有工具只能解决局部，不解决全链路',
-        body: '消息、待办和垂类应用都各管一段，但没有一个系统真正路由动作并跟进到结果。',
+        title: '碎片化工具从来没有变成家庭操作系统',
+        body: '聊天、日历、学校通知、照护提醒和采购事项都存在，但没有一个系统真正理解它们如何互相影响，以及下一步该由谁负责。',
       },
     ],
-    compareTitle: '没有 AstraFlow',
-    compareBody:
-      '信息碎片堆积，优先级漂移，家庭运行持续依赖某个人脑内的协调成本。',
-    withTitle: '有 AstraFlow',
-    withBody:
-      '家庭上下文被结构化、可路由、带权限感知并保持可见，系统会不断沉淀方法，而不是反复人工救火。',
-    workflowTitle: 'AstraFlow 如何工作',
-    workflowBody:
-      'AstraFlow 持续积累 family context，把事务路由给合适的 agent，在敏感动作前保留确认，并通过 EaseFlows 不断收紧执行闭环。',
-    workflowSteps: [
-      {
-        title: 'Capture + Structure',
-        body: 'Household Gateway 接住家庭真正生活其中的各种信号。',
-      },
-      {
-        title: 'Route to the right agent',
-        body: 'Personalized AI Agents 理解身份、权限、优先级和下一步责任归属。',
-      },
-      {
-        title: 'Execute with control',
-        body: '高风险动作保持确认，常规协作则在低打扰前提下向前推进。',
-      },
-    ],
-    principlesTitle: '它更像基础设施，而不是助手表演',
-    principles: [
-      'Household Gateway',
-      'Personalized AI Agents',
-      'EaseFlows',
-      'Auditable family context',
-      'Permissioned execution',
-      'Human confirmation on sensitive work',
-    ],
-    faqTitle: '在你愿意信任这种系统之前，应该先问的问题',
+    act1Eyebrow: 'Act 1 · Invisible Load',
+    act1Title: '这是智能系统重新恢复秩序前的最后一刻。',
+    act1Body:
+      'AstraFlow 从真实压力开始：家庭组织者仍然站得住、撑得住，但她已经同时承受过多责任，任何纯靠人脑维持的记忆与协调循环都会开始失真。',
+    act1Points: ['学校通知与工作会议撞在一起', '老人照护、采购、缴费与接送不断叠加', '看似精致稳定的生活，底层却仍靠一个人超负荷运转'],
+    act2Eyebrow: 'Act 2 · World Model',
+    act2Title: '系统不再看见碎片，而是开始理解整个家庭如何运转。',
+    act2Body:
+      'AstraFlow 会构建一个 family world model，把人物、地点、时间、任务、依赖与冲突组织成可推理的结构。它不是再给你一个列表，而是在持续理解、规划、重排优先级，并随着这个家庭的节奏不断学习。',
+    act2Points: ['在问题变成家庭压力之前先识别冲突', '按照角色、上下文、权限和紧急度做路由', '把习惯、节奏和长期记忆持续沉淀，而不是每周重新开始'],
+    principlesTitle: '这个系统真正优化的是什么',
+    principlesBody:
+      '它不是助手表演，而是一个可控的执行层，让复杂家庭变得可理解、带权限感知，并逐渐回到更冷静的节奏。',
+    principles: ['结构化家庭记忆', '冲突感知规划', 'Permissioned execution', '低打扰的人类确认'],
+    act3Eyebrow: 'Act 3 · Hand Off Reality',
+    act3Title: '产品之所以显得轻，是因为真正困难的部分已经被系统接走。',
+    act3Body:
+      '用户只要自然说一句话、顺手拍一张照片，AstraFlow 就能理解上下文、更新正确任务、同步正确家庭成员，并把这条信号放进长期家庭记忆。你负责生活，AstraFlow 负责复杂性。',
+    act3Points: ['学校纸质通知、药盒、购物需求都可以一拍即入', 'agent 会把细节自动关联到照护、日程、提醒或采购', '你继续陪伴家人，系统继续推进整个执行闭环'],
+    faqTitle: '在愿意信任这种系统之前，家庭真正会问的问题',
     faqBody:
-      '对家庭来说，真正重要的是边界、责任和在真实压力下它是否真的有用。',
+      '关键不在于界面看起来多聪明，而在于系统能否在安全边界内真正替人承担责任，而不是再制造一个新的管理对象。',
     faqs: [
       {
         question: '为什么不是另一个家庭助手？',
@@ -214,53 +258,80 @@ const homeCopy = {
           '因为真正缺的是 execution ownership。家庭不需要另一个只会说话的界面，而是一个能路由事务、保持状态并跟进到结果的系统。',
       },
       {
-        question: '为什么一定要 personalized AI Agents？',
+        question: 'family world model 和普通任务列表有什么不同？',
         answer:
-          '家庭成员有不同角色、权限、记忆边界和目标。一个通用 agent 很难安全地判断谁该看什么、做什么、确认什么。',
+          '任务列表只保存孤立事项，family world model 会理解人物、地点、时间、节奏、约束和冲突模式，所以系统可以规划，而不只是记录。',
       },
       {
         question: '敏感动作如何控制？',
         answer:
-          'AstraFlow 把敏感动作视为 permissioned execution。高风险步骤必须可追溯、可回看，并被明确确认。',
+          'AstraFlow 把敏感动作视为 permissioned execution。高风险步骤必须可追溯、可回看，并在明确确认后执行。',
       },
       {
-        question: '如果家庭已经有很多工具怎么办？',
+        question: '低打扰录入具体是什么意思？',
         answer:
-          'AstraFlow 是这些工具之上的 operating layer。它结构化信号、路由动作，并让家庭方法持续复利。',
+          '它意味着产品要在现实发生的地方接住信息。一次语音输入或一张照片就足以更新家庭运行循环，而不是要求用户停下来手工整理所有结构。',
       },
     ],
     mobileMenuTitle: '导航',
     closeMenuLabel: '关闭菜单',
     navLabels: {
       whyNow: '为什么是现在',
-      workflow: '如何工作',
+      worldModel: '世界模型',
       faq: 'FAQ',
       blog: '博客',
     },
-    waitlistTitle: '让每周少一点隐形劳动，多一点真正推进。',
+    waitlistTitle: '当复杂性终于有了 owner，家庭生活会是什么样。',
     waitlistBody:
-      '加入名单后，我们会分享产品笔记、operating-loop 预览和早期访问更新，持续展示 AstraFlow 如何走向真实家庭工作流。',
-    waitlistBenefits: ['基于 BP 的产品笔记', '新的 EaseFlow 预览', 'guided pilot 开放通知'],
+      '加入名单后，我们会持续分享产品笔记、视觉 demo 和早期访问更新，展示 AstraFlow 如何从叙事走向真实家庭工作流。',
+    waitlistBenefits: ['三幕产品故事板与产品笔记', '基于家庭现实的 system demo', 'guided pilot 开放更新'],
     emailLabel: 'Work email',
     emailPlaceholder: 'ada@household.com',
     submit: '申请早期访问',
     successNote: '我们会通过这个入口持续发送下一批产品笔记与访问更新。',
     footerKicker: '一个冷静的 Family Execution System',
     footerBody:
-      '服务于需要真正执行闭环的现代家庭，而不是继续把协调压力留给某一个人。',
+      '服务于那些已经厌倦提醒工具和碎片化应用的家庭，也服务于那个一直默默把一切扛住的人。',
     footerLinks: [
       { label: '博客', to: '/blog' },
       { label: '为什么是现在', action: 'why-now' },
       { label: 'FAQ', action: 'faq' },
     ],
+    imageAlts: {
+      act1: '高端家居空间中，一位年轻女性被学校通知、照护提醒和家庭任务的信息压力包围。',
+      act2: '同一位女性身后展开家庭世界模型，系统正在理解人物、地点、时间与冲突关系。',
+      act3: '同一位女性在轻松生活中用语音和拍照把家庭事务自然交给智能系统。',
+    },
   },
-} as const
+}
 
 function SectionEyebrow({ children }: { children: string }) {
   return (
     <div className="inline-flex items-center gap-2 rounded-full bg-white/74 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-slate-500 ring-1 ring-black/5">
       <Sparkles className="size-3.5" />
       <span>{children}</span>
+    </div>
+  )
+}
+
+function StoryImage({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string
+  alt: string
+  priority?: boolean
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-[32px] bg-slate-950 shadow-[0_34px_120px_rgba(2,8,23,0.22)] ring-1 ring-black/10">
+      <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(7,12,22,0.08),rgba(7,12,22,0.22))]" />
+      <img
+        src={src}
+        alt={alt}
+        loading="eager"
+        className="aspect-[5/4] w-full object-cover object-center md:aspect-[16/10] xl:aspect-[16/9]"
+      />
     </div>
   )
 }
@@ -280,7 +351,7 @@ export function HomePage() {
 
   const navItems: HeaderNavItem[] = [
     { label: copy.navLabels.whyNow, onClick: () => scrollToSection('why-now') },
-    { label: copy.navLabels.workflow, onClick: () => scrollToSection('workflow') },
+    { label: copy.navLabels.worldModel, onClick: () => scrollToSection('world-model') },
     { label: copy.navLabels.faq, onClick: () => scrollToSection('faq') },
     { label: copy.navLabels.blog, to: '/blog' },
   ]
@@ -305,99 +376,70 @@ export function HomePage() {
       />
 
       <main>
-        <section className="px-5 pb-24 pt-16 sm:px-8 sm:pb-32 sm:pt-24">
-          <div className="mx-auto max-w-5xl text-center">
-            <SectionEyebrow>{copy.heroBadge}</SectionEyebrow>
-            <h1 className="mx-auto mt-8 max-w-4xl font-display text-[50px] leading-[0.94] tracking-tight sm:text-[78px] lg:text-[96px]">
-              {copy.heroTitle}
-            </h1>
-            <p className="mx-auto mt-7 max-w-2xl text-[17px] leading-8 text-slate-700">{copy.heroBody}</p>
-            <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-7 text-slate-600">{copy.heroBodyAlt}</p>
+        <section className="px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:pt-24">
+          <div className="mx-auto max-w-[1600px]">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.22fr] lg:items-start xl:gap-[4.5rem]">
+              <div>
+                <SectionEyebrow>{copy.heroBadge}</SectionEyebrow>
+                <h1 className="mt-8 max-w-[14ch] font-display text-[32px] leading-[0.9] tracking-tight sm:text-[52px] lg:text-[62px] xl:text-[72px]">
+                  {copy.heroTitle}
+                </h1>
+                <p className="mt-7 max-w-[62ch] text-[16px] leading-8 text-slate-700 sm:text-[17px]">{copy.heroBody}</p>
+                <p className="mt-4 max-w-[62ch] text-[15px] leading-7 text-slate-600">{copy.heroBodyAlt}</p>
 
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <Button
-                className="h-12 rounded-full bg-slate-950 px-7 text-sm text-white shadow-[0_20px_60px_rgba(2,8,23,0.18)] hover:bg-slate-900"
-                onClick={() => scrollToSection('waitlist')}
-              >
-                {copy.primaryCta}
-              </Button>
-              <Link to="/blog" className="inline-flex no-underline">
-                <Button className="h-12 rounded-full bg-white/80 px-6 text-sm text-slate-900 ring-1 ring-black/5 hover:bg-white">
-                  {copy.secondaryCta} <ArrowRight className="size-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {copy.heroSignals.map((signal) => (
+                    <span
+                      key={signal}
+                      className="rounded-full bg-white/84 px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-slate-500 ring-1 ring-black/5"
+                    >
+                      {signal}
+                    </span>
+                  ))}
+                </div>
 
-          <div className="mx-auto mt-18 max-w-5xl sm:mt-24">
-            <div className="rounded-[36px] bg-[linear-gradient(180deg,rgba(16,32,54,1),rgba(28,49,78,0.96))] p-3 shadow-[0_34px_120px_rgba(2,8,23,0.22)] ring-1 ring-black/10 sm:p-5">
-              <div className="overflow-hidden rounded-[28px] bg-[radial-gradient(120%_100%_at_50%_0%,rgba(103,232,249,0.12),transparent_50%),linear-gradient(180deg,rgba(240,248,255,0.98),rgba(228,238,246,0.96))]">
-                <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-                  <div>
-                    <div className="inline-flex rounded-full bg-slate-950 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-slate-100">
-                      {copy.showcaseLabel}
-                    </div>
-                    <div className="mt-5 font-display text-[34px] leading-[0.98] tracking-tight text-slate-950 sm:text-[46px]">
-                      {copy.showcaseTitle}
-                    </div>
-                    <p className="mt-4 max-w-xl text-[15px] leading-7 text-slate-600">{copy.showcaseBody}</p>
-                    <div className="mt-7 rounded-[24px] bg-slate-950 px-5 py-5 text-left text-white shadow-[0_24px_70px_rgba(2,8,23,0.18)]">
-                      <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400">Operating loop</div>
-                      <div className="mt-3 font-display text-[24px] leading-tight tracking-tight">
-                        {copy.showcaseLoop}
+                <div className="mt-9 flex flex-wrap items-center gap-3">
+                  <Button
+                    className="h-12 rounded-full bg-slate-950 px-7 text-sm text-white shadow-[0_20px_60px_rgba(2,8,23,0.18)] hover:bg-slate-900"
+                    onClick={() => scrollToSection('waitlist')}
+                  >
+                    {copy.primaryCta}
+                  </Button>
+                  <Link to="/blog" className="inline-flex no-underline">
+                    <Button className="h-12 rounded-full bg-white/80 px-6 text-sm text-slate-900 ring-1 ring-black/5 hover:bg-white">
+                      {copy.secondaryCta} <ArrowRight className="size-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="space-y-5 lg:pl-2 xl:pl-8">
+                <StoryImage src={actOneImage} alt={copy.imageAlts.act1} priority />
+                <div className="grid gap-3 md:grid-cols-3 xl:gap-4">
+                  {copy.act1Points.map((point) => (
+                    <SoftCard key={point} className="p-4 sm:p-5 xl:p-6">
+                      <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400">
+                        {copy.act1Eyebrow}
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-[26px] bg-white/76 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] ring-1 ring-black/6">
-                    <div className="rounded-[22px] bg-white p-4 ring-1 ring-black/5">
-                      <div className="flex items-center justify-between gap-3">
-                        <div>
-                          <div className="font-display text-[22px] tracking-tight text-slate-950">
-                            Household Gateway
-                          </div>
-                          <div className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-400">
-                            EaseFlows
-                          </div>
-                        </div>
-                        <div className="rounded-full bg-sky-100 px-3 py-1 text-xs text-sky-700">
-                          Active
-                        </div>
-                      </div>
-
-                      <div className="mt-5 grid gap-3">
-                        {copy.showcasePanels.map((panel) => (
-                          <div
-                            key={panel.label}
-                            className="rounded-[18px] bg-slate-50 px-4 py-4 ring-1 ring-black/5"
-                          >
-                            <div className="flex items-center justify-between gap-3">
-                              <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400">
-                                {panel.label}
-                              </div>
-                              <div className="font-medium text-slate-900">{panel.value}</div>
-                            </div>
-                            <div className="mt-2 text-sm leading-6 text-slate-600">{panel.note}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                      <div className="mt-3 text-sm leading-7 text-slate-600">{point}</div>
+                    </SoftCard>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="why-now" className="px-5 py-18 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <section id="why-now" className="px-5 py-20 sm:px-8 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[1600px]">
+            <div className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
               <div>
                 <SectionEyebrow>{copy.whyTitle}</SectionEyebrow>
-                <h2 className="mt-6 font-display text-[34px] leading-[1.02] tracking-tight sm:text-[44px]">
-                  {copy.whyTitle}
+                <h2 className="mt-6 max-w-[13ch] font-display text-[32px] leading-[1.02] tracking-tight sm:text-[44px] lg:text-[58px]">
+                  {copy.act1Title}
                 </h2>
                 <p className="mt-5 max-w-xl text-[15px] leading-7 text-slate-600">{copy.whyBody}</p>
+                <p className="mt-4 max-w-[62ch] text-[15px] leading-7 text-slate-600">{copy.act1Body}</p>
               </div>
 
               <div className="grid gap-4 md:grid-cols-2">
@@ -409,93 +451,62 @@ export function HomePage() {
                 ))}
               </div>
             </div>
-
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              <SoftCard className="p-7 sm:p-8">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400">
-                  {copy.compareTitle}
-                </div>
-                <div className="mt-4 font-display text-[30px] leading-[1.02] tracking-tight">
-                  {copy.compareTitle}
-                </div>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{copy.compareBody}</p>
-              </SoftCard>
-              <SoftCard className="p-7 sm:p-8">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400">
-                  {copy.withTitle}
-                </div>
-                <div className="mt-4 font-display text-[30px] leading-[1.02] tracking-tight">
-                  {copy.withTitle}
-                </div>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{copy.withBody}</p>
-              </SoftCard>
-            </div>
           </div>
         </section>
 
-        <section id="workflow" className="px-5 py-18 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-              <div>
-                <SectionEyebrow>{copy.workflowTitle}</SectionEyebrow>
-                <h2 className="mt-6 font-display text-[34px] leading-[1.02] tracking-tight sm:text-[44px]">
-                  {copy.workflowTitle}
+        <section id="world-model" className="px-5 py-20 sm:px-8 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[1600px]">
+            <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-start xl:gap-[4.5rem]">
+              <StoryImage src={actTwoImage} alt={copy.imageAlts.act2} />
+
+              <div className="lg:pt-2">
+                <SectionEyebrow>{copy.act2Eyebrow}</SectionEyebrow>
+                <h2 className="mt-6 max-w-[18ch] font-display text-[32px] leading-[1.02] tracking-tight sm:text-[44px] lg:text-[56px] xl:text-[64px]">
+                  {copy.act2Title}
                 </h2>
-                <p className="mt-5 max-w-xl text-[15px] leading-7 text-slate-600">{copy.workflowBody}</p>
-              </div>
-
-              <div className="grid gap-4">
-                {copy.workflowSteps.map((step, index) => (
-                  <SoftCard key={step.title} className="p-6 sm:p-7">
-                    <div className="flex gap-4">
-                      <div className="grid size-12 flex-none place-items-center rounded-[18px] bg-slate-950 text-sm font-semibold text-white">
-                        0{index + 1}
-                      </div>
-                      <div>
-                        <div className="font-display text-[24px] tracking-tight">{step.title}</div>
-                        <p className="mt-2 text-sm leading-7 text-slate-600">{step.body}</p>
-                      </div>
+                <p className="mt-5 max-w-[62ch] text-[15px] leading-7 text-slate-600">{copy.act2Body}</p>
+                <div className="mt-7 grid gap-4">
+                  {copy.act2Points.map((point) => (
+                    <div key={point} className="rounded-[24px] bg-white/84 px-5 py-4 text-sm leading-7 text-slate-600 ring-1 ring-black/5 shadow-[0_18px_60px_rgba(2,8,23,0.06)]">
+                      {point}
                     </div>
-                  </SoftCard>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="px-5 py-18 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-5xl">
-            <SoftCard className="p-8 sm:p-10">
-              <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+        <section className="px-5 py-20 sm:px-8 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[1600px]">
+            <SoftCard className="p-8 sm:p-10 lg:p-12">
+              <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                 <div>
                   <SectionEyebrow>{copy.principlesTitle}</SectionEyebrow>
-                  <h2 className="mt-6 font-display text-[34px] leading-[1.02] tracking-tight sm:text-[44px]">
+                  <h2 className="mt-6 max-w-[13ch] font-display text-[32px] leading-[1.02] tracking-tight sm:text-[44px] lg:text-[58px]">
                     {copy.principlesTitle}
                   </h2>
+                  <p className="mt-5 max-w-xl text-[15px] leading-7 text-slate-600">{copy.principlesBody}</p>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {copy.principles.map((item, index) => (
                     <div
                       key={item}
                       className={cn(
-                        'flex items-center gap-3 rounded-[20px] px-4 py-4 ring-1 ring-black/5',
-                        index === 0
-                          ? 'bg-slate-950 text-white'
-                          : 'bg-white/80 text-slate-700',
+                        'flex items-center gap-3 rounded-[22px] px-4 py-4 ring-1 ring-black/5',
+                        index % 2 === 0 ? 'bg-slate-950 text-white' : 'bg-white/82 text-slate-700',
                       )}
                     >
                       <span
                         className={cn(
                           'grid size-8 place-items-center rounded-full',
-                          index === 0 ? 'bg-white/12 text-white' : 'bg-slate-100 text-slate-700',
+                          index % 2 === 0 ? 'bg-white/12 text-white' : 'bg-slate-100 text-slate-700',
                         )}
                       >
-                        {index < 3 ? (
+                        {index < 2 ? (
                           <Waypoints className="size-4" />
-                        ) : index < 5 ? (
-                          <ShieldCheck className="size-4" />
                         ) : (
-                          <Bot className="size-4" />
+                          <ShieldCheck className="size-4" />
                         )}
                       </span>
                       <span className="text-sm font-medium">{item}</span>
@@ -507,12 +518,38 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="faq" className="px-5 py-18 sm:px-8 sm:py-24">
-          <div className="mx-auto max-w-5xl">
+        <section className="px-5 py-20 sm:px-8 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[1600px]">
+            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start xl:gap-[4.5rem]">
+              <div className="lg:pt-2">
+                <SectionEyebrow>{copy.act3Eyebrow}</SectionEyebrow>
+                <h2 className="mt-6 max-w-[18ch] font-display text-[32px] leading-[1.02] tracking-tight sm:text-[44px] lg:text-[56px] xl:text-[64px]">
+                  {copy.act3Title}
+                </h2>
+                <p className="mt-5 max-w-[62ch] text-[15px] leading-7 text-slate-600">{copy.act3Body}</p>
+                <div className="mt-7 grid gap-4">
+                  {copy.act3Points.map((point) => (
+                    <div key={point} className="flex items-start gap-3 rounded-[22px] bg-white/80 px-5 py-4 ring-1 ring-black/5 shadow-[0_18px_60px_rgba(2,8,23,0.06)]">
+                      <span className="mt-1 grid size-7 flex-none place-items-center rounded-full bg-slate-950 text-white">
+                        <Check className="size-4" />
+                      </span>
+                      <span className="text-sm leading-7 text-slate-600">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <StoryImage src={actThreeImage} alt={copy.imageAlts.act3} />
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="px-5 py-20 sm:px-8 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-[1600px]">
             <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
               <div>
                 <SectionEyebrow>FAQ</SectionEyebrow>
-                <h2 className="mt-6 font-display text-[34px] leading-[1.02] tracking-tight sm:text-[44px]">
+                <h2 className="mt-6 max-w-[13ch] font-display text-[32px] leading-[1.02] tracking-tight sm:text-[44px] lg:text-[58px]">
                   {copy.faqTitle}
                 </h2>
                 <p className="mt-5 max-w-xl text-[15px] leading-7 text-slate-600">{copy.faqBody}</p>
@@ -555,15 +592,15 @@ export function HomePage() {
         </section>
 
         <section id="waitlist" className="px-5 pb-24 pt-18 sm:px-8 sm:pb-28 sm:pt-24">
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+          <div className="mx-auto max-w-[1600px]">
+            <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
               <div>
                 <SectionEyebrow>{copy.primaryCta}</SectionEyebrow>
-                <h2 className="mt-6 max-w-lg font-display text-[38px] leading-[0.98] tracking-tight sm:text-[52px]">
+                <h2 className="mt-6 max-w-[13ch] font-display text-[34px] leading-[0.98] tracking-tight sm:text-[48px] lg:text-[60px]">
                   {copy.waitlistTitle}
                 </h2>
                 <p className="mt-5 max-w-xl text-[15px] leading-7 text-slate-600">{copy.waitlistBody}</p>
-                <div className="mt-6 grid gap-3">
+                <div className="mt-7 grid gap-4">
                   {copy.waitlistBenefits.map((benefit) => (
                     <div key={benefit} className="flex items-center gap-3 text-sm text-slate-700">
                       <span className="grid size-7 place-items-center rounded-full bg-slate-950 text-white">
@@ -633,11 +670,11 @@ export function HomePage() {
       </main>
 
       <footer className="px-5 pb-16 pt-12 sm:px-8 sm:pb-20">
-        <div className="mx-auto max-w-5xl border-t border-black/6 pt-10">
+        <div className="mx-auto max-w-[1600px] border-t border-black/6 pt-10">
           <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400">{copy.footerKicker}</div>
           <div className="mt-4 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <div className="font-display text-[48px] leading-none tracking-tight text-slate-950 sm:text-[72px]">
+              <div className="font-display text-[46px] leading-none tracking-tight text-slate-950 sm:text-[68px]">
                 AstraFlow
               </div>
               <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">{copy.footerBody}</p>
@@ -654,7 +691,7 @@ export function HomePage() {
                     key={item.label}
                     type="button"
                     className="text-left transition hover:text-slate-950"
-                    onClick={() => scrollToSection(item.action!)}
+                    onClick={() => scrollToSection(item.action)}
                   >
                     {item.label}
                   </button>

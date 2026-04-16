@@ -4,8 +4,8 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-describe('HomePage landing refresh contracts', () => {
-  it('adds stateful mobile navigation, faq, and waitlist demo interactions', async () => {
+describe('HomePage household agent visual refresh contracts', () => {
+  it('imports the three local AIGC image assets and keeps core landing interactions', async () => {
     const source = await readFile(
       path.join(process.cwd(), 'src/features/ref-clone/pages/HomePage.tsx'),
       'utf8',
@@ -15,27 +15,29 @@ describe('HomePage landing refresh contracts', () => {
       'utf8',
     )
 
+    expect(source).toContain("from '../../../../assets/01.webp'")
+    expect(source).toContain("from '../../../../assets/02.webp'")
+    expect(source).toContain("from '../../../../assets/03.webp'")
     expect(source).toContain('const [mobileMenuOpen, setMobileMenuOpen] = useState(false)')
-    expect(primitives).toContain("role=\"dialog\"")
-    expect(primitives).toContain('aria-label={mobileMenuTitle ?? copy.defaultMenuTitle}')
     expect(source).toContain('const [activeFaq, setActiveFaq] = useState(0)')
     expect(source).toContain('const [waitlistState, setWaitlistState] = useState')
-    expect(source).toContain('Why not another family assistant?')
-    expect(source).toContain('Work email')
-    expect(source).toContain('We will share the next product notes and access updates here.')
+    expect(primitives).toContain('role="dialog"')
+    expect(source).toContain('data-testid="waitlist-form"')
+    expect(source).toContain('Act 2')
+    expect(source).toContain('Act 3')
   })
 
-  it('adds BP-aligned sections beyond the original hero and three-card layout', async () => {
+  it('rewrites the homepage around invisible load, world model planning, and low-friction capture', async () => {
     const source = await readFile(
       path.join(process.cwd(), 'src/features/ref-clone/pages/HomePage.tsx'),
       'utf8',
     )
 
-    expect(source).toContain('Capture → Structure → Route → Execute')
-    expect(source).toContain('Household Gateway')
-    expect(source).toContain('EaseFlows')
-    expect(source).toContain('execution ownership')
-    expect(source).toContain('Why now')
-    expect(source).toContain('Frequently asked before you trust a system like this')
+    expect(source).toContain('The household does not break because information is missing')
+    expect(source).toContain('She carries the routing, remembering, and invisible recovery work')
+    expect(source).toContain('family world model')
+    expect(source).toContain('people, places, time, tasks, and conflicts')
+    expect(source).toContain('voice note or a quick photo')
+    expect(source).toContain('You keep living. AstraFlow handles the complexity.')
   })
 })

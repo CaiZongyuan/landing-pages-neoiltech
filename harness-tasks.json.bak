@@ -306,7 +306,7 @@
     {
       "id": "task-015",
       "title": "创建语言切换 bugfix PR 并完成合并",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "depends_on": [
         "task-014"
@@ -323,9 +323,7 @@
       },
       "error_log": [],
       "checkpoints": [],
-      "completed_at": null,
-      "claimed_by": "codex-locale-rerender-fix",
-      "claimed_at": "2026-03-19T07:25:56Z"
+      "completed_at": "2026-03-19T07:27:58Z"
     },
     {
       "id": "task-016",
@@ -346,6 +344,72 @@
       "error_log": [],
       "checkpoints": [],
       "completed_at": "2026-03-19T07:18:54Z"
+    },
+    {
+      "id": "task-017",
+      "title": "定义 landing page 三幕 AIGC 视觉叙事刷新合同文档",
+      "status": "completed",
+      "priority": "P0",
+      "depends_on": [],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": "97a64f31936de0bcff40e224a61923249914e86a",
+      "validation": {
+        "command": "test -f docs/prd/household-agent-visual-refresh.md && test -f docs/api/household-agent-visual-refresh.md && test -f docs/ui/household-agent-visual-refresh.md && test -f tests/household-agent-visual-refresh-test-cases.md",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-04-16T08:15:01Z"
+    },
+    {
+      "id": "task-018",
+      "title": "创建 landing page 三幕 AIGC 视觉叙事刷新 GitHub issue 并映射 Harness",
+      "status": "completed",
+      "priority": "P0",
+      "depends_on": [
+        "task-017"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": "97a64f31936de0bcff40e224a61923249914e86a",
+      "validation": {
+        "command": "gh issue view 17 >/dev/null",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": "2026-04-16T08:16:02Z"
+    },
+    {
+      "id": "task-019",
+      "title": "按 TDD 将三张 AIGC 图片整合进 landing page 并完成验证",
+      "status": "in_progress",
+      "priority": "P0",
+      "depends_on": [
+        "task-018"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "started_at_commit": "97a64f31936de0bcff40e224a61923249914e86a",
+      "validation": {
+        "command": "bun --bun run test && bun --bun run build",
+        "timeout_seconds": 300
+      },
+      "on_failure": {
+        "cleanup": null
+      },
+      "error_log": [],
+      "checkpoints": [],
+      "completed_at": null,
+      "claimed_by": "codex-household-agent-refresh",
+      "claimed_at": "2026-04-16T08:16:02Z"
     }
   ],
   "session_count": 0,
